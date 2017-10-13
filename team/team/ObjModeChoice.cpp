@@ -68,25 +68,26 @@ void CObjModeChoice::Action()
 	}
 
 	
-
-	//→キーを押すと対戦モード(オフライン)・対戦モード(オンライン)に移動
-	if(Input::GetVKey('D') == true)
-	{	
+	//→キー又はDキーを押すと対戦モード(オフライン)・対戦モード(オンライン)に移動
+	if (Input::GetVKey('D') == true || Input::GetVKey(VK_RIGHT) == true)
+	{
 		//説明画面が選択されているとき
-		if(select == 1)
+		if (select == 1)
 		{
 			//COM対戦に移動
 			select += 1;
 		}
 		//対戦(オフライン)が選択されているとき
-		if(select == 3)
+		if (select == 3)
 		{
 			//対戦(オンライン)に移動
 			select += 1;
 		}
+			
 	}
-	//←キーを押すとCOM対戦モード・説明画面に移動
-	if(Input::GetVKey('A') == true)
+
+	//←キー又は左を押すとCOM対戦モード・説明画面に移動
+	if(Input::GetVKey('A') == true || Input::GetVKey(VK_LEFT) == true)
 	{
 		//COM対戦が選択されているとき
 		if(select == 2)
@@ -101,8 +102,9 @@ void CObjModeChoice::Action()
 			select -=1;
 		}
 	}
-	//↓キーを押すと説明・対戦モード(オンライン)に移動
-	if(Input::GetVKey('S') == true)
+
+	//↓キー又はSキーを押すと説明・対戦モード(オンライン)に移動
+	if(Input::GetVKey('S') == true || Input::GetVKey(VK_DOWN) == true)
 	{
 		//説明が選択されているとき
 		if(select == 1)
@@ -117,8 +119,9 @@ void CObjModeChoice::Action()
 			select += 2;
 		}
 	}
-	//↑キーを押すとCOM対戦モード・対戦モード(オフライン)に移動
-	if(Input::GetVKey('W') == true)
+
+	//↑キー又はWキーを押すとCOM対戦モード・対戦モード(オフライン)に移動
+	if(Input::GetVKey('W') == true || Input::GetVKey(VK_UP) == true)
 	{
 		//対戦(オフライン)が選択されているとき
 		if(select == 3)
@@ -140,44 +143,46 @@ void CObjModeChoice::Action()
 void CObjModeChoice::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float red[4] = { 0.0f , 0.5f , 1.0f , 1.0f };
 
 	Font::StrDraw(L"矢印キーでモードを選択してEnterキーを押してください", 50, 200, 35,c);
 	if(select == 1)
 	{
-		Font::StrDraw(L"説明画面", 200, 400, 50, c);
+		Font::StrDraw(L"説明画面", 200, 400, 50, red);
 	}
 	else
 	{
 		Font::StrDraw(L"説明画面", 200, 400, 30, c);
 	}
+
 	if(select == 2)
 	{
-		Font::StrDraw(L"COM対戦", 600, 400, 50, c);
+		Font::StrDraw(L"COM対戦", 600, 400, 50, red);
 	}
 	else
 	{
 		Font::StrDraw(L"COM対戦", 600, 400, 30, c);
 	}
+
 	if(select == 3)
 	{
-		Font::StrDraw(L"対戦",200,550,50,c);
-		Font::StrDraw(L"(オフライン)",300,560,30,c);
+		Font::StrDraw(L"対戦",200,550,50,red);
+		Font::StrDraw(L"(オフライン)",300,560,30,red);
 	}
 	else
 	{
 		Font::StrDraw(L"対戦(オフライン)",200,550,30,c);
 	}
+
 	if(select == 4)
 	{
-		Font::StrDraw(L"対戦", 600, 550, 50, c);
-		Font::StrDraw(L"(オンライン)", 700,560,30,c);
-		Font::StrDraw(L"～～※実装予定～～",600,600,30,c);
+		Font::StrDraw(L"対戦", 600, 550, 50, red);
+		Font::StrDraw(L"(オンライン)", 700,560,30,red);
+		Font::StrDraw(L"～～※実装予定～～",600,600,30,red);
 	}
 	else
 	{
 		Font::StrDraw(L"対戦(オンライン)", 600, 550, 30, c);
 	}
-
-		Font::StrDraw(L"Push EnterKey To Game Start!!", 250, 680, 35, c);
 
 }

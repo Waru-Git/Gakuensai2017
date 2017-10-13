@@ -19,24 +19,37 @@ void CObjExplanation2::Init()
 //アクション
 void CObjExplanation2::Action()
 {
-	//エンターキーを押してシーン：ゲームメインに移行する
-	if(Input ::GetVKey(VK_RETURN)==true)
+	//→キーかDキーを押して次の説明画面に移行する
+	if (Input::GetVKey(VK_RIGHT) == true || Input::GetVKey('D') == true)
 	{
-		if(m_key_flag==true)
+		if (m_key_flag == true)
 		{
-			//説明オブジェクト1作成
-			CObjExplanation* obj=new CObjExplanation();//説明オブジェクト2作成
-			Objs::InsertObj(obj,OBJ_EXPLANATION,10);
+			//説明オブジェクト作成
+			CObjExplanation* obj = new CObjExplanation();//説明オブジェクト2作成
+			Objs::InsertObj(obj, OBJ_EXPLANATION3, 10);
 
-			this->SetStatus(false);//説明オブジェクト2破棄
-			
+			m_key_flag = false;
+
+			this->SetStatus(false);//説明1オブジェクト破棄
+		}
+	}
+	//←キーかAキーを押して前の説明画面に移行する
+	else if (Input::GetVKey(VK_LEFT) == true || Input::GetVKey('A') == true)
+	{
+		if (m_key_flag == true)
+		{
+			CObjModeChoice* obj = new CObjModeChoice();
+			Objs::InsertObj(obj, OBJ_MODE_CHOICE, 10);
+
+			m_key_flag = false;
+
+			this->SetStatus(false);//説明オブジェクト3破棄
 		}
 	}
 	else
 	{
-		m_key_flag=true;
+		m_key_flag = true;
 	}
-
 }
 
 //ドロー
@@ -58,5 +71,6 @@ void CObjExplanation2::Draw()
 
 	Font::StrDraw(L"1/3",950,10,30,c);
 
-	Font::StrDraw(L"Next Page : PushEnterKey",300,540,32,c);
+	Font::StrDraw(L"Next Page   : → / D", 360, 660, 32, c);
+	Font::StrDraw(L"Mode Select : ← / A", 360, 692, 32, c);
 }

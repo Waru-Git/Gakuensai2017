@@ -18,5 +18,6 @@ public:
 private:
 	bool m_key_flag;//キーフラグ
 	int pattern;
+	int m_time; //点滅用タイム
 	
 };
