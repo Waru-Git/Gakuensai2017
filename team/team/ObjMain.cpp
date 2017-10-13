@@ -46,7 +46,10 @@ void CObjMain::Init()
 	m_count_time=0;
 
 	//文字が大きくなる時間
-	font_big_time=0.0;
+	font_big_time=0.0f;
+
+	//ランキング用タイムの初期化
+	m_ranking_time = 0;
 
 	//ゲームオーバー管理
 	flag = false;
@@ -66,7 +69,16 @@ void CObjMain::Init()
 //アクション
 void CObjMain::Action()
 {
+	//勝負が終わっていればなにもしない
+	if (flag == true) return;
+
 	m_count_time++;
+
+	if (m_count_time > 270)//スタートの表示が終わっていれば
+	{
+		if ((m_count_time - 270) % 60 == 0)	//60f毎(1秒ごと)に
+			m_ranking_time++;				//ランキング用のタイムの更新
+	}
 
 	//ヒーローオブジェクトの呼び出し
 	CObjHero * obj_h =(CObjHero*)Objs ::GetObj(OBJ_HERO);		//左
@@ -114,18 +126,13 @@ void CObjMain::Action()
 						{
 							CObjBlock* obj_b=new CObjBlock(j,i,m_map[i][j].num,
 										false,false);
-							Objs::InsertObj(obj_b,OBJ_BLOCK,10);
-						
-					
+							Objs::InsertObj(obj_b,OBJ_BLOCK,10);					
 						}
-
 						m_map[i][j].obj_check=false;//オブジェクト生成フラグをオフにする
 						m_map[i][j].stop_flag=false;//ブロック生成位置のストップフラグをオフにする
 						m_map[i][j].obj_time=0;//オブジェクト生成タイムをリセットする
-
 					}
 				}//生成フラッグオン　ENDif	
-
 			}
 			//---------------------------------
 			//お邪魔ブロック　6
@@ -195,7 +202,6 @@ void CObjMain::Action()
 	{
 		VictoryProcess(vs_CP);//勝利判定をみたしているか調べ、満たしていれば処理をする
 	}
-
 }
 
 //ドロー
@@ -205,13 +211,19 @@ void CObjMain::Draw()
 	float c[4]={1.0f,1.0f,1.0f,1.0f};
 	float start[4]={1.0f,1.0f,0.0f,1.0f};
 
-
 	RECT_F src;	//描画元切り取り位置
 	RECT_F dst;	//描画先表示位置
 	
+	wchar_t str[10];//0:分　1:秒
 
+	//スタートのカウントが終わっていれば
 	if(m_count_time>=270)
 	{
+		//スコア表示
+		swprintf_s(str, L"%02d:%02d",m_ranking_time/60, m_ranking_time % 60);
+		Font::StrDraw(str, 430.0f, 20.0f, 60.0f, c);
+
+		//ここからブロック表示-----------
 		for(int y=0;y<7;y++)
 		{
 			for(int x=0;x<20;x++)
@@ -219,7 +231,6 @@ void CObjMain::Draw()
 				//表示位置の設定
 				RectSet(80.0f+y*BLOCK_SIZE,50.0f+x*BLOCK_SIZE,
 					50.0f+x*BLOCK_SIZE+BLOCK_SIZE,80.0f+y*BLOCK_SIZE+BLOCK_SIZE,dst);
-				
 				
 				//枠表示
 				if(x==9)
@@ -260,11 +271,11 @@ void CObjMain::Draw()
 	}
 
 	//切り取り位置の設定
-		RectSet(0.0f,0.0f,256.0f,256.0f,src);
+	RectSet(0.0f,0.0f,256.0f,256.0f,src);
+
 	//3
 	if(m_count_time<=70)
 	{
-
 		if(m_count_time==5)
 			Audio::Start(9);//効果音
 
@@ -314,7 +325,6 @@ void CObjMain::Draw()
 		RectSet(100.0f,300.0f,700.0f,400.0f,dst);
 
 		Draw::Draw(14,&src,&dst,start,0.0f);//描画
-		
 	}
 
 	//カウントが70きたときに元のサイズに戻す
@@ -370,7 +380,6 @@ void CObjMain::CheckMap(int x, int y,bool lr)
 				break;
 		}
 	}
-
 
 	number=abs(pos[1]-pos[0])+1;//つながっている数(お邪魔と両サイド込み)を求める
 
@@ -473,7 +482,6 @@ void CObjMain::CheckMap(int x, int y,bool lr)
 	}
 	else
 	{
-
 		//MessageBox(NULL,L"お邪魔ブロックの数のほうが多い",L"OjyamaBlock",MB_OK);
 	}
 }
@@ -1107,7 +1115,6 @@ void CObjMain::VictoryProcess(bool vs_CP)
 	CObjHero * obj_h =(CObjHero*)Objs ::GetObj(OBJ_HERO);		//左
 	CObjHero_R * obj_hr =(CObjHero_R*)Objs ::GetObj(OBJ_HERO_R);//右
 	
-
 	if(m_vc_l==true && m_vc_r==true )//両方が敗北条件を満たしているなら
 	{
 		//引き分け
@@ -1179,7 +1186,6 @@ void CObjMain::VictoryProcess(bool vs_CP)
 		{
 			CObjCP * obj_cp =(CObjCP*)Objs ::GetObj(OBJ_CP);//CPオブジェクトの呼び出し
 	
-
 			CObjGameOver* obj_win_lose = new CObjGameOver(2);//ゲームオーバーオブジェクト作成
 			Objs::InsertObj(obj_win_lose,OBJ_GAME_OVER,10);//ゲームオーバーオブジェクト作成
 			//機体を行動不能にする------

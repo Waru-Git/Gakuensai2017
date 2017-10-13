@@ -27,6 +27,12 @@ void CObjGameOver::Init()
 
 	count=0;
 	
+	//CP戦かどうかしらべる------
+	//マップオブジェクトの呼び出し
+	CObjMain * obj = (CObjMain*)Objs::GetObj(OBJ_MAIN);
+	m_cp_flag=obj->ReturnCPflag();
+	//-------------------------
+
 	//Win.wav以外の音楽をとめる------
 	//戦闘曲ストップ
 	Audio::Stop(8);
@@ -49,6 +55,13 @@ void CObjGameOver::Action()
 		//マスターボリュームを1.0に戻す
 		float v =Audio::VolumeMaster( 0 );
 		v =Audio::VolumeMaster( (1.0-v) );
+
+		//---つぎここからセーブとその管理（指南書３－８）
+		////CP戦　かつ　左プレイヤーの勝利なら
+		//if (m_cp_flag == true && m_pattern == 1)
+		//{
+		//	((UserData*)Save::GetData())
+		//}
 
 		//タイトルへ移行
 		Scene::SetScene(new CSceneTitle);		

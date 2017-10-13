@@ -436,7 +436,6 @@ void CObjHero_R::Block_Pos_Save()
 		}
 		else 
 		{
-
 			//左側のブロックの位置を記憶
 			m_shot_x[0]=18;
 			m_shot_y[0]=t;

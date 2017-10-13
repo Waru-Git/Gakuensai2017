@@ -14,8 +14,6 @@
 //使用するネームスペース
 using namespace GameL;
 
-bool BulletClamp(int& BulIndex);
-
 //イニシャライズ
 void CObjHero::Init()
 {
@@ -67,7 +65,7 @@ void CObjHero::Init()
 	m_end_flag=false;
 
 	//ゲージ用＆強制発射用
-	m_gauge_time=360;
+	m_gauge_time = 360;
 
 	//お邪魔ブロックを降らす数
 	ojm_num=0;
@@ -83,6 +81,8 @@ void CObjHero::Action()
 	
 	if(m_count_time >= 10000)//10000を超えないようにする
 		m_count_time=270;
+
+	if(m_count_time)
 
 	//ゲームオーバーなら
 	if(m_end_flag==true) return;//2017-06-26

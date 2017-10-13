@@ -1,5 +1,7 @@
 #pragma once
 
+//60FPS
+
 //解像度サイズ
 #define PIXEL_SIZE_W	(1024)
 #define PIXEL_SIZE_H	(768)

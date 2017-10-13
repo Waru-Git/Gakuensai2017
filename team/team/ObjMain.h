@@ -62,7 +62,7 @@ class CObjMain : public CObj
 		void AiDeleteCheck_W(int color1,int color2,int r);//AI用ブロックが消せる位置を探す関数(ブロック横想定)
 		void StopPointCheck();//それぞれの段のどこでブロックがとまるかを調べる関数
 		int InSideCheck();//ブロックが止まる位置のなかれ一番小さい位置を探し、複数あればその中からランダムで１つ決める関数
-
+		bool ReturnCPflag() { return vs_CP; }	//CP戦かのフラグを返す関数
 
 	private:
 		bool m_f;
@@ -96,4 +96,7 @@ class CObjMain : public CObj
 
 		//AI用の変数
 		int BlockStopPoint[7];
+
+		//ランキング用のタイム計測用
+		int m_ranking_time;
 };

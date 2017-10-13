@@ -19,8 +19,8 @@ public:
 	
 private:
 	int m_pattern;//勝敗パターン
-
 	float m_y;  //文字のy位置
 	float m_yy;  //文字のy位置
 	int count;	//文字をずらすためのカウント
+	bool m_cp_flag;	//CP戦かどうかを示すフラグ
 };

@@ -164,7 +164,6 @@ void CObjCP::Shot_move()
 		D_Point[0].Delete.y = obj->InSideCheck();//一番内側で止まる位置からランダムでとりだす
 	 }
 				
-
 	//自分のブロックがとまっている場合
 	if( obj->ShotCheck(false) ==true)
 	{

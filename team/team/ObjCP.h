@@ -19,8 +19,8 @@ public:
 	void Action();//アクション
 	void Draw();//ドロー
 	void Shot_move();//移動、回転、弾の発射をする関数
-	void SetX(float x);//位置情報ｘ変更用
-	void SetY(float y);//位置情報ｙ変更用
+	//void SetX(float x);//位置情報ｘ変更用
+	//void SetY(float y);//位置情報ｙ変更用
 	void EndFlag_ON(){m_end_flag=true;}//ゲームオブジェクトフラグをオンにする
 	
 	void Block_Pos_Save();//ブロックを生成する予定位置の保存
@@ -30,7 +30,7 @@ public:
 	int ReturnMove(){return m_move;}//移動の位置を返す関数
 	void SetOjmNum(int n){ ojm_num += n; }//お邪魔ブロックの生成数をセットする関数
 
-	void CheckNumBlock();
+	//void CheckNumBlock();
 
 	//AI関連の関数
 	void SetDeletePoint(Point d,int n,int rad);//ブロックの消せるをセットする関数
