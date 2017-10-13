@@ -40,24 +40,37 @@ void CObjExplanation3::Action()
 	if(m_gauge_time < 0)//0以下にならないようにする
 		m_gauge_time=0;
 
-	//エンターキーを押してゲームメインに移行する
-	if(Input ::GetVKey(VK_RETURN)==true)
+	//→キーかDキーを押してモードセレクトの説明画面に移行する
+	if (Input::GetVKey(VK_RIGHT) == true || Input::GetVKey('D') == true)
 	{
-		if(m_key_flag==true)
+		if (m_key_flag == true)
 		{
+			//モードセレクトに移動
 			CObjModeChoice* obj = new CObjModeChoice();
 			Objs::InsertObj(obj, OBJ_MODE_CHOICE, 10);
 
-			this->SetStatus(false);//説明オブジェクト3破棄
+			m_key_flag = false;
 
-			m_f = false;
+			this->SetStatus(false);//説明1オブジェクト破棄
 		}
-
 	}
+	//←キーかAキーを押して前の説明画面に移行する
+	else if (Input::GetVKey(VK_LEFT) == true || Input::GetVKey('A') == true)
+	{
+		if (m_key_flag == true)
+		{
+			//説明オブジェクト作成
+			CObjExplanation* obj = new CObjExplanation();//説明オブジェクト2作成
+			Objs::InsertObj(obj, OBJ_EXPLANATION3, 10);
 
+			m_key_flag = false;
+
+			this->SetStatus(false);//説明オブジェクト3破棄
+		}
+	}
 	else
 	{
-		m_key_flag=true;
+		m_key_flag = true;
 	}
 
 	if(m_gauge_time == 0)
@@ -106,7 +119,8 @@ void CObjExplanation3::Draw()
 	Font::StrDraw(L"　　ゲーム終了。相手の端のマスにブロックを埋めると", 150, 520, 28, c);
 	Font::StrDraw(L"　　勝利となる" , 150 , 550 , 28 , c);
 
-	Font::StrDraw(L"Push EnterKey to ModeChoice"  , 200 , 650 , 50 , c);
+	Font::StrDraw(L"Mode Select : → / D", 360, 660, 32, c);
+	Font::StrDraw(L"Back Page   : ← / A", 360, 692, 32, c);
 
 //文字表示おわり--------------------------------------------------------------------------------------------
 

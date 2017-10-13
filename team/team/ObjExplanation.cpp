@@ -19,14 +19,30 @@ void CObjExplanation::Init()
 void CObjExplanation::Action()
 {
 
-	//エンターキーを押して次の説明画面に移行する
-	if(Input ::GetVKey(VK_RETURN)==true)
+	//→キーかDキーを押して次の説明画面に移行する
+	if(Input ::GetVKey(VK_RIGHT)==true || Input::GetVKey('D') == true)
 	{
 		if(m_key_flag==true)
 		{
 			//説明オブジェクト3作成
 			CObjExplanation3* obj=new CObjExplanation3();//説明オブジェクト2作成
 			Objs::InsertObj(obj,OBJ_EXPLANATION3,10);
+
+			m_key_flag = false;
+
+			this->SetStatus(false);//説明1オブジェクト破棄
+		}
+	}
+	//←キーかAキーを押して前の説明画面に移行する
+	else if (Input::GetVKey(VK_LEFT) == true || Input::GetVKey('A') == true)
+	{
+		if (m_key_flag == true)
+		{
+			//説明オブジェクト2作成
+			CObjExplanation2* obj = new CObjExplanation2();//説明オブジェクト2作成
+			Objs::InsertObj(obj, OBJ_EXPLANATION3, 10);
+
+			m_key_flag = false;
 
 			this->SetStatus(false);//説明1オブジェクト破棄
 		}
@@ -35,6 +51,8 @@ void CObjExplanation::Action()
 	{
 		m_key_flag=true;
 	}
+
+	
 }
 
 //ドロー
@@ -64,7 +82,8 @@ void CObjExplanation::Draw()
 	Font::StrDraw(L"弾発射",750,410,25,moji);
 	Font::StrDraw(L"弾回転(右回転)",750,510,25,moji);
 
-	Font::StrDraw(L"Next Page : PushEnterKey",320,630,32,moji);
+	Font::StrDraw(L"Next Page : → / D", 360, 660, 32, moji);
+	Font::StrDraw(L"Back Page : ← / A", 360, 692, 32, moji);
 
 //文字表示おわり----------------------------------------------------
 		

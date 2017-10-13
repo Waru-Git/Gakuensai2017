@@ -16,6 +16,7 @@ using namespace GameL;
 void CObjTitle::Init()
 {
 	m_key_flag=false;
+	m_time = 0;
 }
 
 //アクション
@@ -84,6 +85,15 @@ void CObjTitle::Draw()
 //タイトルロゴおわり--------------------------------
 
 //文字表示-------------------------------------------
-	Font::StrDraw(L"PushEnterKey", 400, 540, 30, c);
+	m_time++;
+
+	if (m_time >= 0 && m_time < 40)
+	{
+		Font::StrDraw(L"PushEnterKey", 340, 540, 60, c);
+	}
+	else if (m_time >= 80)
+	{
+		m_time = 0;
+	}
 
 }
