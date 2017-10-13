@@ -68,6 +68,8 @@ void CObjGameOver::Draw()
 //パターンに応じて
 void CObjGameOver::Result()
 {
+	CObjCP* obj_cp = new CObjCP();
+
 	float c[4]={1.0f,1.0f,1.0f,1.0f};//カラー
 	
 	switch(m_pattern)
@@ -80,15 +82,33 @@ void CObjGameOver::Result()
 		}
 		case 1:
 		{
-			//1Pwin表示
-			Font::StrDraw(L"1P WIN",350,m_yy - count ,100,c);
-			break;
+			if (obj_cp != nullptr)
+			{
+				//CPU勝利
+				Font::StrDraw(L"YOU WIN", 350, m_yy - count, 100, c);
+				break;
+			}
+			else//2人対戦時
+			{
+				//1Pwin表示
+				Font::StrDraw(L"1P WIN", 350, m_yy - count, 100, c);
+				break;
+			}
 		}
 		case 2:
 		{
-			//2Pwin表示
-			Font::StrDraw(L"2P WIN",350,m_yy - count,100,c);
-			break;
+			if (obj_cp != nullptr)//CPU対戦か否か判定
+			{
+				//CPU勝利
+				Font::StrDraw(L"YOU LOSE", 350, m_yy - count, 100, c);
+				break;
+			}
+			else//2人対戦時
+			{
+				//2Pwin表示
+				Font::StrDraw(L"2P WIN", 350, m_yy - count, 100, c);
+				break;
+			}
 		}
 	}
 }
