@@ -69,8 +69,8 @@ void CObjModeChoice::Action()
 
 	
 
-	//→キーを押すと対戦モード(オフライン)・対戦モード(オンライン)に移動
-	if(Input::GetVKey('D') == true)
+	//→キー又はDキーを押すと対戦モード(オフライン)・対戦モード(オンライン)に移動
+	if(Input::GetVKey('D') == true || Input::GetVKey(VK_RIGHT) == true)
 	{	
 		//説明画面が選択されているとき
 		if(select == 1)
@@ -85,8 +85,8 @@ void CObjModeChoice::Action()
 			select += 1;
 		}
 	}
-	//←キーを押すとCOM対戦モード・説明画面に移動
-	if(Input::GetVKey('A') == true)
+	//←キー又は左を押すとCOM対戦モード・説明画面に移動
+	if(Input::GetVKey('A') == true || Input::GetVKey(VK_LEFT) == true)
 	{
 		//COM対戦が選択されているとき
 		if(select == 2)
@@ -101,8 +101,8 @@ void CObjModeChoice::Action()
 			select -=1;
 		}
 	}
-	//↓キーを押すと説明・対戦モード(オンライン)に移動
-	if(Input::GetVKey('S') == true)
+	//↓キー又はSキーを押すと説明・対戦モード(オンライン)に移動
+	if(Input::GetVKey('S') == true || Input::GetVKey(VK_DOWN) == true)
 	{
 		//説明が選択されているとき
 		if(select == 1)
@@ -117,8 +117,8 @@ void CObjModeChoice::Action()
 			select += 2;
 		}
 	}
-	//↑キーを押すとCOM対戦モード・対戦モード(オフライン)に移動
-	if(Input::GetVKey('W') == true)
+	//↑キー又はWキーを押すとCOM対戦モード・対戦モード(オフライン)に移動
+	if(Input::GetVKey('W') == true || Input::GetVKey(VK_UP) == true)
 	{
 		//対戦(オフライン)が選択されているとき
 		if(select == 3)
