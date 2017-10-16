@@ -6,6 +6,7 @@
 //使用するネームスペース
 using namespace GameL;
 
+
 //オブジェクト：タイトル
 class CObjGameOver:public CObj
 {
@@ -16,7 +17,7 @@ public:
 	void Action();//アクション
 	void Draw();//ドロー
 	void Result();//パターンに応じて結果の文字をだす関数
-	
+	void RankingSort(int rank[11]);
 private:
 	int m_pattern;//勝敗パターン
 	float m_y;  //文字のy位置

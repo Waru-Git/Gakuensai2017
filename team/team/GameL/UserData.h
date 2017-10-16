@@ -12,6 +12,8 @@ namespace GameL
 	typedef class CUserData
 	{
 		public :
+			CUserData();
+			~CUserData();
 			static void Init(void* data,int size);
 			static void Delete();
 			static void Open();

@@ -49,7 +49,7 @@ void CObjMain::Init()
 	font_big_time=0.0f;
 
 	//ƒ‰ƒ“ƒLƒ“ƒO—pƒ^ƒCƒ€‚Ì‰Šú‰»
-	m_ranking_time = 0;
+	m_time = 0;
 
 	//ƒQ[ƒ€ƒI[ƒo[ŠÇ—
 	flag = false;
@@ -77,7 +77,7 @@ void CObjMain::Action()
 	if (m_count_time > 270)//ƒXƒ^[ƒg‚Ì•\¦‚ªI‚í‚Á‚Ä‚¢‚ê‚Î
 	{
 		if ((m_count_time - 270) % 60 == 0)	//60f–ˆ(1•b‚²‚Æ)‚É
-			m_ranking_time++;				//ƒ‰ƒ“ƒLƒ“ƒO—p‚Ìƒ^ƒCƒ€‚ÌXV
+			m_time++;				//ƒ‰ƒ“ƒLƒ“ƒO—p‚Ìƒ^ƒCƒ€‚ÌXV
 	}
 
 	//ƒq[ƒ[ƒIƒuƒWƒFƒNƒg‚ÌŒÄ‚Ño‚µ
@@ -220,7 +220,7 @@ void CObjMain::Draw()
 	if(m_count_time>=270)
 	{
 		//ƒXƒRƒA•\¦
-		swprintf_s(str, L"%02d:%02d",m_ranking_time/60, m_ranking_time % 60);
+		swprintf_s(str, L"%02d:%02d",m_time/60, m_time % 60);
 		Font::StrDraw(str, 430.0f, 20.0f, 60.0f, c);
 
 		//‚±‚±‚©‚çƒuƒƒbƒN•\¦-----------
@@ -625,7 +625,6 @@ bool CObjMain::StopCheck(int y,bool lr)//w’è‚µ‚½’i‚Ì‘S‚Ä‚ÌƒuƒƒbƒN‚ª‚Æ‚Ü‚Á‚Ä‚¢‚
 			}
 		}
 	}
-
 	return true;
 }
 
@@ -752,8 +751,6 @@ int CObjMain::BlockDeleteCheck(int x,int y,bool lr)
 				ojm_count++;
 		}
 	}
-
-	
 
 	//--------------------------------------------
 	// ˜A½ƒ`ƒFƒCƒ“@Á‚µ‚±‚İˆ—
@@ -1024,7 +1021,6 @@ void CObjMain::AiDeleteCheck_W(int color1,int color2,int r)
 	//‚»‚ê‚¼‚ê‚ÌÚ×î•ñ‚ğ‹‚ß‚Ä‘—‚é----------------------------------------
 	
 		//‰¡Œü‚«‚Ìê‡‚ÍF1‚Æ2‚Ì‚É‚æ‚Á‚ÄˆÊ’u‚Ì•Ï‰»‚Í–³‚¢‚Ì‚ÅÁ‚¹‚é”‚¾‚¯’²‚×‚ê‚Î‚¢‚¢
-
 		for(int y=0;y<7;y++)
 		{
 			if( delete_num_color1[y] >= 0 || delete_num_color2[y] >= 0)//F1‚©F2‚ÌÁ‚¹‚é”‚ª0‚æ‚è‚¨‚¨‚«‚¯‚ê‚Î

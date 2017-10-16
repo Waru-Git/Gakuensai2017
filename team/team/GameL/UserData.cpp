@@ -7,6 +7,18 @@ using namespace GameL;
 void* CUserData::m_data;		//ユーザー情報
 int   CUserData::m_data_size;	//ユーザー情報サイズ
 
+CUserData::CUserData() {//コンストラクター
+	//初期化　i=0;
+
+
+}
+CUserData::~CUserData() {//デストラクター
+	//ファイナル　削除されるとき、よびだされる
+
+
+
+
+}
 
 void* CUserData::GetData()
 {

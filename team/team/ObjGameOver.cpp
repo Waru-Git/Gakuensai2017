@@ -9,8 +9,12 @@
 #include "ObjGameOver.h"
 #include "ObjBackground.h"
 
+#include "GameL\UserData.h"
+
 //使用するネームスペース
 using namespace GameL;
+
+
 
 //コンストラクタ
 CObjGameOver::CObjGameOver(int p)
@@ -56,12 +60,19 @@ void CObjGameOver::Action()
 		float v =Audio::VolumeMaster( 0 );
 		v =Audio::VolumeMaster( (1.0-v) );
 
-		//---つぎここからセーブとその管理（指南書３－８）
-		////CP戦　かつ　左プレイヤーの勝利なら
-		//if (m_cp_flag == true && m_pattern == 1)
-		//{
-		//	((UserData*)Save::GetData())
-		//}
+		//CP戦　かつ　左プレイヤーの勝利なら
+		if (m_cp_flag == true && m_pattern == 1)
+		{
+			//マップオブジェクトの呼び出し
+			CObjMain * obj_main = (CObjMain*)Objs::GetObj(OBJ_MAIN);
+
+			//ランキングの最下位に今回のタイムを保存
+			((UserData*)Save::GetData())->mRankingTimeData[10] = obj_main->ReturnTime();
+
+			//ランキングのをソートする
+			RankingSort(((UserData*)Save::GetData())->mRankingTimeData);
+
+		}
 
 		//タイトルへ移行
 		Scene::SetScene(new CSceneTitle);		
@@ -121,6 +132,30 @@ void CObjGameOver::Result()
 				//2Pwin表示
 				Font::StrDraw(L"2P WIN", 350, m_yy - count, 100, c);
 				break;
+			}
+		}
+	}
+}
+
+//ランキングソートメソッド
+//引数１int[16]:ランキング用は配列
+//高い順でバブルソートを行う
+void CObjGameOver::RankingSort(int rank[11])
+{
+	//値の交換用変数
+	int w;
+
+	//バブルソート
+	for (int i = 0; i<10; i++)
+	{
+		for (int j = i + 1; j<11; j++)
+		{
+			if (rank[i]<=rank[j])
+			{
+				//値の交換
+				w = rank[i];
+				rank[i] = rank[j];
+				rank[j] = w;
 			}
 		}
 	}
