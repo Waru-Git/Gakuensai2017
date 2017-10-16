@@ -49,7 +49,6 @@ struct UserData
 	int mSeveData;	//サンプルセーブデータ
 	int m_pointL;	//左の人用得点
 	int m_pointR;	//右の人用得点
-	int mRankingTime;//ランキング用のポイント
 	int mRankingTimeData[11];//ランキング用のデータ
 };
 //------------------------------------------------

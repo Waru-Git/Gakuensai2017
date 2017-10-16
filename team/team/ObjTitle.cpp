@@ -3,7 +3,7 @@
 #include "GameL\WinInputs.h"
 #include"GameL\DrawTexture.h"
 #include "GameL\Audio.h"
-
+#include "GameL\UserData.h"
 #include "GameHead.h"
 #include "ObjTitle.h"
 #include"ObjBackground.h"
@@ -17,6 +17,16 @@ void CObjTitle::Init()
 {
 	m_key_flag=false;
 	m_time = 0;
+
+	//ランキング情報の初期化
+	for (int i = 0; i < 11; i++)
+	{
+		((UserData*)Save::GetData())->mRankingTimeData[i] = 0;
+	}
+	Save::Open();
+
+	
+
 }
 
 //アクション
