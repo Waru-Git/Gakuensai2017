@@ -31,7 +31,6 @@ CSceneTitle::~CSceneTitle()
 //ゲームメイン初期化メソッド
 void CSceneTitle::InitScene()
 {
-
 	//出力させる文字のグラフィックを作成
 	Font::SetStrTex(L"GameStart : PushEnterKey");
 	Font::SetStrTex(L"タイトル");

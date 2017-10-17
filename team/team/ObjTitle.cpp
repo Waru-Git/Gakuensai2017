@@ -78,7 +78,6 @@ void CObjTitle::Action()
 			Audio::Start(10);
 			
 			m_key_flag=false;
-
 		}
 	}
 	else

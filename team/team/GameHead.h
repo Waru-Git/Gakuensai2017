@@ -62,11 +62,11 @@ struct UserData
 #define BLOCK_SIZE (46)
 
 //中間点の位置管理用
-	struct Point 
-	{
-		float x;
-		float y;
-	};
+struct Point 
+{
+	float x;
+	float y;
+};
 
 //------------------------------------------------
 //ゲーム内で使用するクラスヘッダ------------------
