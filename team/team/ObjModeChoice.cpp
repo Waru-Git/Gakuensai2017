@@ -61,8 +61,6 @@ void CObjModeChoice::Action()
 				this->SetStatus(false);
 				m_key_flag = false;
 			}
-
-
 		}
 	}
 

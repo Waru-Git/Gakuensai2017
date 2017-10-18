@@ -25,7 +25,8 @@ void CObjTitle::Init()
 		//ランキング情報の初期化
 		for (int i = 0; i < 11; i++)
 		{
-			((UserData*)Save::GetData())->mRankingTimeData[i] = 9999;
+			((UserData*)Save::GetData())->mRankingTimeData[i] = 9999;				//タイム
+			strcpy(((UserData*)Save::GetData())->mRankingNameData[i], "-----");		//名前
 	
 			//デバッグ用---------------------------------------
 			wchar_t str[256];
@@ -39,7 +40,11 @@ void CObjTitle::Init()
 		{
 			//情報が足りない場合
 			if (((UserData*)Save::GetData())->mRankingTimeData[i] < 0)
-				((UserData*)Save::GetData())->mRankingTimeData[i] = 9999;
+			{
+				((UserData*)Save::GetData())->mRankingTimeData[i] = 9999;			//タイム
+				strcpy(((UserData*)Save::GetData())->mRankingNameData[i], "-----");	//名前
+			}
+
 		}
 
 		//デバッグ用--------------------------------------
@@ -47,7 +52,7 @@ void CObjTitle::Init()
 		while (i < 11)
 		{
 			wchar_t str[256];
-			swprintf_s(str, L"ロード後[%d]:%d", ((UserData*)Save::GetData())->mRankingTimeData[i]);
+			swprintf_s(str, L"ロード後[%d]:%d",i, ((UserData*)Save::GetData())->mRankingTimeData[i]);
 			OutputDebugStringW(str);
 			i++;
 		}
