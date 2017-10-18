@@ -94,8 +94,10 @@
     <ClCompile Include="ObjMain.cpp" />
     <ClCompile Include="ObjModeChoice.cpp" />
     <ClCompile Include="ObjRanking.cpp" />
+    <ClCompile Include="ObjNameInput.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="SceneMain.cpp" />
+    <ClCompile Include="SceneNameInput.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
     <ClCompile Include="SceneVsCP.cpp" />
     <ClCompile Include="UtilityModule.cpp" />
@@ -118,6 +120,8 @@
     <ClInclude Include="GameL\SetWindow.h" />
     <ClInclude Include="GameL\UserData.h" />
     <ClInclude Include="GameL\WinInputs.h" />
+    <ClInclude Include="ObjNameInput.h" />
+    <ClInclude Include="SceneNameInput.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="ObjBackground.h" />
     <ClInclude Include="ObjCP.h" />

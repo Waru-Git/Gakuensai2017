@@ -60,6 +60,11 @@ void CObjGameOver::Action()
 		float v =Audio::VolumeMaster( 0 );
 		v =Audio::VolumeMaster( (1.0-v) );
 
+		//タイム計測＆ランキング保存システムのデバッグ用
+		m_cp_flag = true;
+		m_pattern = 1;
+		//------------------------------------------
+
 		//CP戦　かつ　左プレイヤーの勝利なら
 		if (m_cp_flag == true && m_pattern == 1)
 		{
@@ -72,6 +77,7 @@ void CObjGameOver::Action()
 			//ランキングのをソートする
 			RankingSort(((UserData*)Save::GetData())->mRankingTimeData);
 
+			Save::Seve();//UserDataの作成（セーブ）する。
 		}
 
 		//タイトルへ移行
@@ -138,8 +144,8 @@ void CObjGameOver::Result()
 }
 
 //ランキングソートメソッド
-//引数１int[16]:ランキング用は配列
-//高い順でバブルソートを行う
+//引数１int[11]:ランキング用は配列
+//低い順でソートを行う
 void CObjGameOver::RankingSort(int rank[11])
 {
 	//値の交換用変数
@@ -150,7 +156,7 @@ void CObjGameOver::RankingSort(int rank[11])
 	{
 		for (int j = i + 1; j<11; j++)
 		{
-			if (rank[i]<=rank[j])
+			if (rank[i] >= rank[j])
 			{
 				//値の交換
 				w = rank[i];

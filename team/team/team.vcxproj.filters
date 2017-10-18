@@ -25,6 +25,9 @@
     <Filter Include="ソース ファイル\共通ファイル">
       <UniqueIdentifier>{d6c3c46c-804a-4063-8301-8d8a5c0c0d40}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\vsCP\NameInput">
+      <UniqueIdentifier>{7fcbb672-4a82-41b7-949b-a50abfb3020a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -123,6 +126,12 @@
     <ClCompile Include="ObjRanking.cpp">
       <Filter>ソース ファイル\タイトル</Filter>
     </ClCompile>
+    <ClCompile Include="SceneNameInput.cpp">
+      <Filter>ソース ファイル\vsCP\NameInput</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjNameInput.cpp">
+      <Filter>ソース ファイル\vsCP\NameInput</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -217,9 +226,6 @@
     </ClInclude>
     <ClInclude Include="ObjMain.h">
       <Filter>ソース ファイル\共通ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjRanking.h">
-      <Filter>ソース ファイル\タイトル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

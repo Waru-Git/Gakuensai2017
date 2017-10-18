@@ -54,9 +54,7 @@ public:
 	bool VictoryCheck(bool lr);//勝敗の判定用
 	bool ReturnFlag() { return flag; }//ゲームオーバーチェックのフラグを返す関数
 	void VictoryProcess(bool vs_CP);//勝利判定時のゲームオーバー作成などの処理をする関数
-	//その他
-	void Score(int x, int y, int number, int ojm_count, bool lr);//スコアの計算
-
+	
 	//VSCP用
 	void AiDeleteCheck_H(int color1, int color2, int r);//AI用ブロックが消せる位置を探す関数(ブロック縦想定)
 	void AiDeleteCheck_W(int color1, int color2, int r);//AI用ブロックが消せる位置を探す関数(ブロック横想定)

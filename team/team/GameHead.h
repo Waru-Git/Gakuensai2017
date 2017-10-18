@@ -20,6 +20,7 @@ enum OBJ_NAME
 	OBJ_EX_BLOCK,
 	OBJ_MODE_CHOICE,
 	OBJ_CP,
+	OBJ_NAME_INPUT,
 	OBJ_RANKING,
 };
 //------------------------------------------------
@@ -47,10 +48,6 @@ enum HIT_ELEMENTS
 //セーブ＆ロードとシーン間のやり取りするデータ
 struct UserData
 {
-	int mSeveData;	//サンプルセーブデータ
-	int m_pointL;	//左の人用得点
-	int m_pointR;	//右の人用得点
-	int mRankingTime;//ランキング用のポイント
 	int mRankingTimeData[11];//ランキング用のデータ
 };
 //------------------------------------------------
@@ -66,11 +63,11 @@ struct UserData
 #define BLOCK_SIZE (46)
 
 //中間点の位置管理用
-	struct Point 
-	{
-		float x;
-		float y;
-	};
+struct Point 
+{
+	float x;
+	float y;
+};
 
 //------------------------------------------------
 //ゲーム内で使用するクラスヘッダ------------------
@@ -89,7 +86,6 @@ struct UserData
 #include "Function.h"
 #include "ObjModeChoice.h"
 #include "ObjCP.h"
-#include "ObjRanking.h"
 
 //------------------------------------------------
 
@@ -97,6 +93,7 @@ struct UserData
 #include "SceneMain.h"
 #include "SceneTitle.h"
 #include "SceneVsCP.h"
+#include "SceneNameInput.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
