@@ -29,8 +29,6 @@ void CObjNameInput::Init()
 //アクション
 void CObjNameInput::Action()
 {
-
-
 	if (m_flag == true)	//名前入力が終了したら
 	{
 		//タイトルシーンに移動
