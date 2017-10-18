@@ -93,6 +93,7 @@
     <ClCompile Include="ObjGameOver.cpp" />
     <ClCompile Include="ObjMain.cpp" />
     <ClCompile Include="ObjModeChoice.cpp" />
+    <ClCompile Include="ObjRanking.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
@@ -127,6 +128,7 @@
     <ClInclude Include="ObjGameOver.h" />
     <ClInclude Include="ObjMain.h" />
     <ClInclude Include="ObjModeChoice.h" />
+    <ClInclude Include="ObjRanking.h" />
     <ClInclude Include="ObjTitle.h" />
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="SceneTitle.h" />

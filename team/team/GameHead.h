@@ -20,6 +20,7 @@ enum OBJ_NAME
 	OBJ_EX_BLOCK,
 	OBJ_MODE_CHOICE,
 	OBJ_CP,
+	OBJ_RANKING,
 };
 //------------------------------------------------
 
@@ -88,6 +89,7 @@ struct UserData
 #include "Function.h"
 #include "ObjModeChoice.h"
 #include "ObjCP.h"
+#include "ObjRanking.h"
 
 //------------------------------------------------
 

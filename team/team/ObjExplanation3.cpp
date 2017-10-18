@@ -80,8 +80,8 @@ void CObjExplanation3::Action()
 			m_color = rand() % 6;
 
 			//説明ブロックオブジェクト作成
-			CObjExBlock* obj=new CObjExBlock(m_color);
-			Objs::InsertObj(obj,OBJ_EX_BLOCK,20);	
+			CObjExBlock* obj = new CObjExBlock(m_color);
+			Objs::InsertObj(obj, OBJ_EX_BLOCK, 20);
 
 			m_f=false;
 
