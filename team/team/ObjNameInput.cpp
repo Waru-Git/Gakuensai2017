@@ -16,12 +16,6 @@ void CObjNameInput::Init()
 	//フラグの初期化
 	m_flag = false;
 
-	//nameの初期化
-	for (int i = 0; i < 5; i++)
-	{
-		m_name[i] = '-';
-	}
-
 	//出力させる文字のグラフィックを作成
 	Font::SetStrTex(L"名前を入力してください(半角5文字以内)\n");
 }

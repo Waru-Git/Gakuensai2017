@@ -59,8 +59,6 @@ void CObjModeChoice::Action()
 
 				m_key_flag = false;
 			}
-
-
 		}
 	}
 
