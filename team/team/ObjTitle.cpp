@@ -38,7 +38,7 @@ void CObjTitle::Init()
 		for (int i = 0; i < 11; i++)
 		{
 			//情報が足りない場合
-			if (((UserData*)Save::GetData())->mRankingTimeData[i] < 0)
+			if (((UserData*)Save::GetData())->mRankingTimeData[i] <= 0)
 				((UserData*)Save::GetData())->mRankingTimeData[i] = 9999;
 		}
 
@@ -47,7 +47,7 @@ void CObjTitle::Init()
 		while (i < 11)
 		{
 			wchar_t str[256];
-			swprintf_s(str, L"ロード後[%d]:%d", ((UserData*)Save::GetData())->mRankingTimeData[i]);
+			swprintf_s(str, L"ロード後[%d]:%d", i,((UserData*)Save::GetData())->mRankingTimeData[i]);
 			OutputDebugStringW(str);
 			i++;
 		}

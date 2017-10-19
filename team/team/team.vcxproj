@@ -98,6 +98,7 @@
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="SceneNameInput.cpp" />
+    <ClCompile Include="SceneRanking.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
     <ClCompile Include="SceneVsCP.cpp" />
     <ClCompile Include="UtilityModule.cpp" />
@@ -135,6 +136,7 @@
     <ClInclude Include="ObjRanking.h" />
     <ClInclude Include="ObjTitle.h" />
     <ClInclude Include="SceneMain.h" />
+    <ClInclude Include="SceneRanking.h" />
     <ClInclude Include="SceneTitle.h" />
     <ClInclude Include="SceneVsCP.h" />
   </ItemGroup>

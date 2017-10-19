@@ -15,18 +15,6 @@ using namespace GameL;
 void CObjRanking::Init()
 {
 	m_key_flag = false;//キーフラグ
-
-	//起動時一回だけランキング初期化
-	static bool init_point = false;
-	if (init_point == false)
-	{
-		//ランキング初期化
-		for (int i = 0; i < 10; i++)
-		{
-			((UserData*)Save::GetData())->mRankingTimeData[i] = 0;
-		}
-		init_point = true;
-	}
 }
 
 //アクション

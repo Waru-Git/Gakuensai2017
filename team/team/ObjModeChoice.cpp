@@ -55,10 +55,8 @@ void CObjModeChoice::Action()
 			if(select == 4)
 			{
 				//ランキングへ移行
-				CObjRanking* obj_rank = new CObjRanking();//ランキングオブジェクト作成
-				Objs::InsertObj(obj_rank, OBJ_RANKING,10);
+				Scene::SetScene(new CSceneRanking());
 
-				this->SetStatus(false);
 				m_key_flag = false;
 			}
 

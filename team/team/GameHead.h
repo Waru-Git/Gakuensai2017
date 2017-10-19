@@ -96,6 +96,7 @@ struct Point
 #include "SceneTitle.h"
 #include "SceneVsCP.h"
 #include "SceneNameInput.h"
+#include "SceneRanking.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
