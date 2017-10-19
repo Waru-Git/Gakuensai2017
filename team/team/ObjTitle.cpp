@@ -26,7 +26,7 @@ void CObjTitle::Init()
 		for (int i = 0; i < 11; i++)
 		{
 			((UserData*)Save::GetData())->mRankingTimeData[i] = 9999;				//タイム
-			strcpy(((UserData*)Save::GetData())->mRankingNameData[i], "-----");		//名前
+			strcpy(((UserData*)Save::GetData())->mRankingNameData[i], "AAAAA");		//名前			
 	
 			//デバッグ用---------------------------------------
 			wchar_t str[256];
@@ -34,19 +34,16 @@ void CObjTitle::Init()
 			OutputDebugStringW(str);
 			//--------------------------------------------------------
 		}
-		Save::Open();//ランキング情報のロード
-
+		//Save::Open();//ランキング情報のロード
+		
 		for (int i = 0; i < 11; i++)
 		{
 			//情報が足りない場合
-			if (((UserData*)Save::GetData())->mRankingTimeData[i] < 0)
+			if (((UserData*)Save::GetData())->mRankingTimeData[i] <= 0)
 			{
 				((UserData*)Save::GetData())->mRankingTimeData[i] = 9999;			//タイム
-				strcpy(((UserData*)Save::GetData())->mRankingNameData[i], "-----");	//名前
+				strcpy(((UserData*)Save::GetData())->mRankingNameData[i], "AAAAA");	//名前
 			}
-
-			if (((UserData*)Save::GetData())->mRankingTimeData[i] <= 0)
-				((UserData*)Save::GetData())->mRankingTimeData[i] = 9999;
 		}
 
 		//デバッグ用--------------------------------------
