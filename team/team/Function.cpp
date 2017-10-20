@@ -1,4 +1,5 @@
 #include "Function.h"
+#include "GameL\WinInputs.h"
 #include "GameHead.h"
 
 //Rectに値をセットする関数
@@ -11,3 +12,4 @@ void RectSet(float top,float left,float right,float bottom,RECT_F &rect)
 	rect.m_right	= right;
 	rect.m_bottom	= bottom;
 }
+

@@ -111,9 +111,6 @@
     <ClCompile Include="CObjIntervention.cpp">
       <Filter>ソース ファイル\共通ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Function.cpp">
-      <Filter>ソース ファイル\共通ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="ObjBackground.cpp">
       <Filter>ソース ファイル\共通ファイル</Filter>
     </ClCompile>
@@ -137,6 +134,9 @@
     </ClCompile>
     <ClCompile Include="ObjRanking.cpp">
       <Filter>ソース ファイル\タイトル\Ranking</Filter>
+    </ClCompile>
+    <ClCompile Include="Function.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -218,9 +218,6 @@
     <ClInclude Include="CObjIntervention.h">
       <Filter>ソース ファイル\共通ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Function.h">
-      <Filter>ソース ファイル\共通ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="ObjBackground.h">
       <Filter>ソース ファイル\共通ファイル</Filter>
     </ClInclude>
@@ -244,6 +241,9 @@
     </ClInclude>
     <ClInclude Include="SceneNameInput.h">
       <Filter>ソース ファイル\vsCP\NameInput</Filter>
+    </ClInclude>
+    <ClInclude Include="Function.h">
+      <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

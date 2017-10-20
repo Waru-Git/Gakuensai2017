@@ -77,6 +77,5 @@ private:
 	BlockDeleteCheck D_Point[D_POINT_MAX];//ブロックを消せるときの情報を保存するための構造体
 
 	int d_count;//D_pointの呼び出し回数をカウントする
-
 	int m_shoot_time;	//撃つまでの時間(3秒待って撃つ)
 };
