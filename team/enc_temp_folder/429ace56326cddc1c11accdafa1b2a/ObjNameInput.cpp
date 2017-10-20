@@ -31,7 +31,7 @@ void CObjNameInput::Action()
 {
 	if (m_flag == true)	//2週目以降通る
 	{
-		while (m_input_count < 5)
+		while (m_input_count < 6)
 		{
 			if (m_key_flag == false) //キーフラグがオフなら
 			{
@@ -46,8 +46,6 @@ void CObjNameInput::Action()
 				m_key_flag=false;	//キーフラグをオフにする
 			}
 		}
-
-		m_name[5] = '\0';//おわりに\0をいれる
 
 		//タイトルシーンに移動
 		Scene::SetScene(new CSceneTitle());
