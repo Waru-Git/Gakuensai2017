@@ -16,7 +16,7 @@ public:
 	void Action();//アクション
 	void Draw();//ドロー
 
-	void KeyInput();//ネーム入力のキーボードから文字を読み取る関数
+	bool KeyInput();//ネーム入力のキーボードから文字を読み取る関数
 
 private:
 	char m_name[6];//入力された名前の保存用

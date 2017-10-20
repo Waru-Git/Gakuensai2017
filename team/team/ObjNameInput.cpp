@@ -16,10 +16,8 @@ void CObjNameInput::Init()
 	//フラグの初期化
 	m_flag = false;
 
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i <= 6; i++)
 		m_name[i] = ' ';//半角空白で初期化
-
-	m_name[6] = '\0';	
 
 	//出力させる文字のグラフィックを作成
 	Font::SetStrTex(L"名前を入力してください(半角5文字以内)\n");
@@ -28,8 +26,7 @@ void CObjNameInput::Init()
 //アクション
 void CObjNameInput::Action()
 {
-
-	KeyInput();
+	m_flag = KeyInput();//名前を入力させる関数
 
 	if (m_flag == true)	//名前入力が終了したら
 	{
@@ -48,12 +45,12 @@ void CObjNameInput::Draw()
 }
 
 //ネーム入力のキーボードから文字を読み取る関数
-void CObjNameInput::KeyInput()
+bool CObjNameInput::KeyInput()
 {
 	int i = 0;
 	
-	while (i < 6)
-	{
+	//while (i < 6)
+	//{
 		//keyの状態を調べる
 		for (char key = 'A'; key <= 'Z'; key++)
 		{
@@ -70,7 +67,9 @@ void CObjNameInput::KeyInput()
 			m_name[i] = ' ';//初期にもどして
 			i--;	//保存位置を一文字前にずらす
 		}
-	}
+	//}
+		if (m_name[5] != ' ')
+			return true;
 
-	int a = 0;
+	return false;
 }
