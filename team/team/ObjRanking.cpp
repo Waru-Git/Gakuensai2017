@@ -49,15 +49,14 @@ void CObjRanking::Draw()
 
 	for (int i = 0; i < 10; i++)
 	{
-		for (int j = 0; j < 6; j++)
-		{
-			wchar_t str[256];
-			swprintf_s(str, L"%2dˆÊ    %02d:%02d", i + 1, ((UserData*)Save::GetData())->mRankingTimeData[i] / 60, ((UserData*)Save::GetData())->mRankingTimeData[i] % 60);
-			Font::StrDraw(str, 250, 130 + 55 * i, 40, c);
 
-			wchar_t str_name[256];
-			swprintf_s(str_name, L"%s", ((UserData*)Save::GetData())->mRankingNameData[i]);
-			Font::StrDraw(str_name, 400, 130 + 55 * i, 40, c);
-		}
+		wchar_t str[256];
+		swprintf_s(str, L"%2dˆÊ    %02d:%02d", i + 1, ((UserData*)Save::GetData())->mRankingTimeData[i] / 60, ((UserData*)Save::GetData())->mRankingTimeData[i] % 60);
+		Font::StrDraw(str, 250, 130 + 55 * i, 40, c);
+
+		wchar_t str_name[256];
+		swprintf_s(str_name, L"%s", ((UserData*)Save::GetData())->mRankingNameData[i]);
+		Font::StrDraw(str_name, 400, 130 + 55 * i, 40, c);
+
 	}
 }
