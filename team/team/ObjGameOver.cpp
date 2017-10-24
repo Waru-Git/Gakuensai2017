@@ -98,7 +98,7 @@ void CObjGameOver::Action()
 			//ランキングをソートして、今回の順位を調べる
 			ranking = RankingSort(((UserData*)Save::GetData())->mRankingTimeData, ((UserData*)Save::GetData())->mRankingNameData);
 
-			//Save::Seve();//UserDataの作成（セーブ）する。→名前を入力の機能ができたらそっちに移動する
+			Save::Seve();//UserDataの作成（セーブ）する。→名前を入力の機能ができたらそっちに移動する
 
 			//デバッグ-------
 			//ランキングへ移行

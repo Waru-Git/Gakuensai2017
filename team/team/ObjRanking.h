@@ -17,4 +17,6 @@ public:
 	void Draw();//ドロー
 private:
 	bool m_key_flag;//キーフラグ
+	bool time_set_flag[11];//タイムセットフラグ
+						  //初期値が入ってるかどうか調べる用
 };

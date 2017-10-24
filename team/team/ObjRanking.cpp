@@ -15,6 +15,15 @@ using namespace GameL;
 void CObjRanking::Init()
 {
 	m_key_flag = false;//キーフラグ
+
+	for (int i = 0; i <= 10; i++)
+	{
+		//時間に初期値9999が入っていた場合true
+		if (((UserData*)Save::GetData())->mRankingTimeData[i] == SET_TIME)
+		{
+			time_set_flag[i] = true;
+		}
+	}
 }
 
 //アクション
@@ -47,26 +56,34 @@ void CObjRanking::Draw()
 	//ランキング
 	Font::StrDraw(L"ランキング",350,30,60,c);
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i <= 10; i++)
 	{
-
 		//タイム表示-----------------------------------------------
-
-		wchar_t str_time[256];
-		swprintf_s(str_time, L"%2d位     %02d:%02d", i + 1, ((UserData*)Save::GetData())->mRankingTimeData[i] / 60, ((UserData*)Save::GetData())->mRankingTimeData[i] % 60);
-		Font::StrDraw(str_time, 250, 130 + 55 * i, 40, c);
-
+		//初期値9999が入っている場合
+		if (time_set_flag[i] == true)
+		{
+			wchar_t str_time[256];
+			swprintf_s(str_time, L"%2d位     --:--", i + 1);
+			Font::StrDraw(str_time, 250, 130 + 55 * i, 40, c);
+		}
+		//初期値9999が入っていない場合
+		else// if(time_set_flag[j] == false)
+		{
+			wchar_t str_time[256];
+			swprintf_s(str_time, L"%2d位     %02d:%02d", i + 1, ((UserData*)Save::GetData())->mRankingTimeData[i] / 60, ((UserData*)Save::GetData())->mRankingTimeData[i] % 60);
+			Font::StrDraw(str_time, 250, 130 + 55 * i, 40, c);
+		}
 
 		//--------------------------------------------------
 
 		//名前表示
 		wchar_t str_name[256];
 		char name[6];
-		strcpy(name, ((UserData*)Save::GetData())->mRankingNameData[i]);			
-		
-		mbstowcs(str_name, name, 12);	//wchar_t からchar　に　指定したサイズ分コピー
-	
-		Font::StrDraw(str_name, 660, 130 + 55 * i, 40, c);
+		strcpy(name, ((UserData*)Save::GetData())->mRankingNameData[i]);
 
+		mbstowcs(str_name, name, 12);	//wchar_t からchar　に　指定したサイズ分コピー
+
+		Font::StrDraw(str_name, 660, 130 + 55 * i, 40, c);
+		
 	}
 }
