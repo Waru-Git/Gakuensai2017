@@ -65,7 +65,7 @@ struct UserData
 
 //ランキング関連の初期値
 #define SET_NAME	"+++++"
-#define SET_NAMVER	9999
+#define SET_NUMBER	9999
 
 //ゲームクリア後の仮ネーム
 #define NO_NAME	"-----"
@@ -112,5 +112,5 @@ struct Point
 
 //シーンスタートクラス---------------------------
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START  CSceneNameInput
+#define SET_GAME_START  CSceneTitle
 //-----------------------------------------------
