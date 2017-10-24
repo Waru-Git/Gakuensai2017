@@ -65,7 +65,7 @@ struct UserData
 
 //ランキング関連の初期値
 #define SET_NAME	"+++++"
-#define SET_NUMBER	9999
+#define SET_TIME	9999
 
 //ゲームクリア後の仮ネーム
 #define NO_NAME	"-----"

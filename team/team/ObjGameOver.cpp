@@ -75,7 +75,7 @@ void CObjGameOver::Action()
 			
 			//debag---------
 			char name[11][6];
-
+			
 			for (int i = 0; i <= 10; i++)
 			{
 				strcpy(name[i], ((UserData*)Save::GetData())->mRankingNameData[i]);
