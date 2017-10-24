@@ -35,7 +35,7 @@ void CObjRanking::Init()
 //アクション
 void CObjRanking::Action()
 {
-	//エンターキーが押されたらモードセレクトへ戻す
+	//エンターキーが押されたら
 	if (Input::GetVKey(VK_RETURN) == true)
 	{
 		if (m_key_flag == true)
@@ -45,9 +45,9 @@ void CObjRanking::Action()
 				//名前入力シーンへ移動
 				Scene::SetScene(new CSceneNameInput(m_rank));
 			}
-			else
+			else//ランキング外なら
 			{
-				//ランキング外なら
+				//モードセレクトへ
 				CObjModeChoice* obj = new CObjModeChoice();
 				Objs::InsertObj(obj, OBJ_MODE_CHOICE, 10);
 
