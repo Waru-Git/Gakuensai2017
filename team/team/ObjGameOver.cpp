@@ -74,19 +74,17 @@ void CObjGameOver::Action()
 			CObjMain * obj_main = (CObjMain*)Objs::GetObj(OBJ_MAIN);
 			
 			//debag---------
-			char name[11][6];
-			
+			/*char name[11][6];
+
 			for (int i = 0; i <= 10; i++)
 			{
 				strcpy(name[i], ((UserData*)Save::GetData())->mRankingNameData[i]);
-			}
+			}*/
 			//----------------------------------
-
-
 
 			//ランキングの最下位に今回のタイムと名前を保存
 			((UserData*)Save::GetData())->mRankingTimeData[10] = obj_main->ReturnTime();
-			strcpy( ((UserData*)Save::GetData())->mRankingNameData[10],"-----");
+			strcpy( ((UserData*)Save::GetData())->mRankingNameData[10],NO_NAME);
 
 			//for (int i = 0; i < 11; i++)
 			//{
@@ -103,7 +101,9 @@ void CObjGameOver::Action()
 			//Save::Seve();//UserDataの作成（セーブ）する。→名前を入力の機能ができたらそっちに移動する
 
 			//デバッグ-------
-			printf("ranking:%d",&ranking);//ランキングを表示してみる
+
+			//ランキングへ移行
+			Scene::SetScene(new CSceneRanking);
 		}
 
 		//タイトルへ移行
@@ -210,7 +210,7 @@ int CObjGameOver::RankingSort(int time[],char m_name[][6])
 	for (int i = 0; i < 11; i++)
 	{
 		//名前が未入力なら
-		if (strcmp(name[i], "-----") == 0)
+		if (strcmp(name[i], NO_NAME) == 0)
 		{
 			ranking = i + 1; //順位保存
 			break;
