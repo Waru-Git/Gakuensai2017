@@ -41,8 +41,8 @@ void CObjTitle::Init()
 			//情報が足りない場合
 			if (((UserData*)Save::GetData())->mRankingTimeData[i] <= 0)
 			{
-				((UserData*)Save::GetData())->mRankingTimeData[i] = SET_TIME;			//タイム
-				strcpy(((UserData*)Save::GetData())->mRankingNameData[i], SET_NAME);	//名前
+				((UserData*)Save::GetData())->mRankingTimeData[i] = 9999;			//タイム
+				strcpy(((UserData*)Save::GetData())->mRankingNameData[i], "AAAAA");	//名前
 			}
 		}
 
