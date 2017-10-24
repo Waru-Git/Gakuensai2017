@@ -50,12 +50,17 @@ void CObjRanking::Draw()
 	for (int i = 0; i < 10; i++)
 	{
 
-		wchar_t str[256];
-		swprintf_s(str, L"%2d位    %02d:%02d", i + 1, ((UserData*)Save::GetData())->mRankingTimeData[i] / 60, ((UserData*)Save::GetData())->mRankingTimeData[i] % 60);
-		Font::StrDraw(str, 250, 130 + 55 * i, 40, c);
+		wchar_t str_time[256];
+		swprintf_s(str_time, L"%2d位    %02d:%02d", i + 1, ((UserData*)Save::GetData())->mRankingTimeData[i] / 60, ((UserData*)Save::GetData())->mRankingTimeData[i] % 60);
+		Font::StrDraw(str_time, 250, 130 + 55 * i, 40, c);
+
 
 		wchar_t str_name[256];
-		swprintf_s(str_name, L"%s", ((UserData*)Save::GetData())->mRankingNameData[i]);
+		char name[6];
+		strcpy(name, ((UserData*)Save::GetData())->mRankingNameData[i]);			
+		
+		mbstowcs(str_name, name, 12);	//wchar_t からchar　に　指定したサイズ分コピー
+	
 		Font::StrDraw(str_name, 400, 130 + 55 * i, 40, c);
 
 	}
