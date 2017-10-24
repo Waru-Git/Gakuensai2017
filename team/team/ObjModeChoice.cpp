@@ -55,7 +55,7 @@ void CObjModeChoice::Action()
 			if(select == 4)
 			{
 				//ƒ‰ƒ“ƒLƒ“ƒO‚ÖˆÚs
-				Scene::SetScene(new CSceneRanking());
+				Scene::SetScene(new CSceneRanking(99));
 
 				m_key_flag = false;
 			}

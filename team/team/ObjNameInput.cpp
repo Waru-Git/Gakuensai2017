@@ -10,6 +10,12 @@
 //使用するネームスペース
 using namespace GameL;
 
+//コンストラクタ
+CObjNameInput::CObjNameInput(int rank)
+{
+	m_rank = rank;	//ランキング
+}
+
 //イニシャライズ
 void CObjNameInput::Init()
 {
@@ -33,24 +39,30 @@ void CObjNameInput::Action()
 	{
 		while (m_input_count < 5)
 		{
-			if (m_key_flag == false) //キーフラグがオフなら
+			if (m_key_flag == true)	//キーフラグがオンなら
+			{
+				KeyInput(m_input_count);//名前の入力をさせる
+				m_key_flag = false;	//キーフラグをオフにする
+			}
+			else //キーフラグがオフなら
 			{
 				//1つ前の文字と同じ文字が押されていなければ
 				if (Input::GetVKey(m_name[m_input_count - 1]) == false)
 					m_key_flag = true;	//キーフラグをオンにする
 			}
 
-			if (m_key_flag == true)	//キーフラグがオンなら
-			{
-				KeyInput(m_input_count);//名前の入力をさせる
-				m_key_flag=false;	//キーフラグをオフにする
-			}
+			//デバッグ用---------------------------------------
+			wchar_t str[256];
+			swprintf_s(str, L"m_input_count:%d", m_input_count);
+			OutputDebugStringW(str);
+			//--------------------------------------------------------
 		}
 
 		m_name[5] = '\0';//おわりに\0をいれる
 
-		int i = 0;//コンストラクタで持ってくるように変更するまでのデバッグ用
-		strcpy(((UserData*)Save::GetData())->mRankingNameData[i], m_name);		//名前			
+		strcpy(((UserData*)Save::GetData())->mRankingNameData[m_rank - 1], m_name);		//名前			
+		
+		Save::Seve();//UserDataの作成（セーブ）する。
 
 
 		//タイトルシーンに移動
@@ -78,7 +90,7 @@ void CObjNameInput::KeyInput(int number)
 		if (Input::GetVKey(key) == true)
 		{
 			m_name[number] = key;	//押されたkeyを配列に保存
-			m_input_count++;		//保存位置を右にずらす
+			m_input_count++;		//保存位置を一文字進める
 			break;
 		}
 	}
