@@ -68,7 +68,6 @@ void CObjNameInput::Draw()
 //ˆø”:“ü—Í‚³‚ê‚½•¶š‚ğ“ü‚ê‚é”z—ñ‚Ì—v‘f”
 void CObjNameInput::KeyInput(int number)
 {
-	
 	//key‚Ìó‘Ô‚ğ’²‚×‚é
 	for (char key = 'A'; key <= 'Z'; key++)
 	{
