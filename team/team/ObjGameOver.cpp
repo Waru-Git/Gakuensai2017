@@ -101,7 +101,9 @@ void CObjGameOver::Action()
 			//Save::Seve();//UserDataの作成（セーブ）する。→名前を入力の機能ができたらそっちに移動する
 
 			//デバッグ-------
-			printf("ranking:%d",&ranking);//ランキングを表示してみる
+
+			//ランキングへ移行
+			Scene::SetScene(new CSceneRanking);
 		}
 
 		//タイトルへ移行
