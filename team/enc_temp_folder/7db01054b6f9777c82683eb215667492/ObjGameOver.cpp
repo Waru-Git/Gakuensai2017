@@ -178,7 +178,7 @@ int CObjGameOver::RankingSort(int time[],char m_name[][6])
 {
 	int w;		//タイム交換用変数
 	int ranking;//今回の順位保存用
-	char n[6];	//名前交換用配列
+	char n[6];		//名前交換用配列
 
 	char name[11][6];
 

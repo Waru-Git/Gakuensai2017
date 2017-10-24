@@ -35,6 +35,7 @@ void CSceneMain::InitScene()
 	Audio::LoadAudio(5,L"SetOjama.WAV",EFFECT);    //お邪魔設置音
 	Audio::LoadAudio(7,L"Win.wav"   ,BACK_MUSIC);  //勝負がついた時に流れる
 	Audio::LoadAudio(8,L"Fight.wav" , BACK_MUSIC); //戦闘ミュージック
+
 	Audio::LoadAudio(9,L"Start1.wav" , EFFECT);     //スタートシグナル(3~1)
 	Audio::LoadAudio(10,L"Start0.wav" , EFFECT);     //スタートシグナル(start)
 	
