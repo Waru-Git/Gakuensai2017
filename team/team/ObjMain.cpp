@@ -255,15 +255,6 @@ void CObjMain::Draw()
 				}
 			}
 		}
-		//得点の描画　左
-		/*float cc[4]={1.0f,1.0f,1.0f,1.0f};
-		wchar_t str[128];
-		swprintf_s(str,L"score: %d",((UserData*)Save::GetData() )->m_pointL);
-		Font::StrDraw(str,50,450,50,cc);*/
-
-		//得点の描画　右
-		/*swprintf_s(str,L"score: %d",((UserData*)Save::GetData() )->m_pointR);
-		Font::StrDraw(str,670,450,50,cc);*/
 	}
 
 	//切り取り位置の設定

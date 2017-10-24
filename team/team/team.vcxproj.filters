@@ -28,6 +28,9 @@
     <Filter Include="ソース ファイル\vsCP\NameInput">
       <UniqueIdentifier>{7fcbb672-4a82-41b7-949b-a50abfb3020a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Ranking">
+      <UniqueIdentifier>{493dab67-3d2b-4053-bba1-4e21ee6f9401}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -108,9 +111,6 @@
     <ClCompile Include="CObjIntervention.cpp">
       <Filter>ソース ファイル\共通ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Function.cpp">
-      <Filter>ソース ファイル\共通ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="ObjBackground.cpp">
       <Filter>ソース ファイル\共通ファイル</Filter>
     </ClCompile>
@@ -128,6 +128,15 @@
     </ClCompile>
     <ClCompile Include="ObjNameInput.cpp">
       <Filter>ソース ファイル\vsCP\NameInput</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneRanking.cpp">
+      <Filter>ソース ファイル\Ranking</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjRanking.cpp">
+      <Filter>ソース ファイル\Ranking</Filter>
+    </ClCompile>
+    <ClCompile Include="Function.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -209,9 +218,6 @@
     <ClInclude Include="CObjIntervention.h">
       <Filter>ソース ファイル\共通ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Function.h">
-      <Filter>ソース ファイル\共通ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="ObjBackground.h">
       <Filter>ソース ファイル\共通ファイル</Filter>
     </ClInclude>
@@ -224,11 +230,20 @@
     <ClInclude Include="ObjMain.h">
       <Filter>ソース ファイル\共通ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="SceneNameInput.h">
-      <Filter>ソース ファイル\vsCP\NameInput</Filter>
+    <ClInclude Include="SceneRanking.h">
+      <Filter>ソース ファイル\Ranking</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjRanking.h">
+      <Filter>ソース ファイル\Ranking</Filter>
     </ClInclude>
     <ClInclude Include="ObjNameInput.h">
       <Filter>ソース ファイル\vsCP\NameInput</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneNameInput.h">
+      <Filter>ソース ファイル\vsCP\NameInput</Filter>
+    </ClInclude>
+    <ClInclude Include="Function.h">
+      <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

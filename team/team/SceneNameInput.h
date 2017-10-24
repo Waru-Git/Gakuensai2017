@@ -10,9 +10,10 @@ using namespace GameL;
 class CSceneNameInput :public CScene
 {
 public:
-	CSceneNameInput() {};
+	CSceneNameInput(int rank);
 	~CSceneNameInput() {};
 	void InitScene();//ゲームメインの初期化のメソッド
 	void Scene();//ゲームメインの実行中のメソッド
 private:
+	int m_rank;	//順位を保存
 };

@@ -21,6 +21,7 @@ enum OBJ_NAME
 	OBJ_MODE_CHOICE,
 	OBJ_CP,
 	OBJ_NAME_INPUT,
+	OBJ_RANKING,
 };
 //------------------------------------------------
 
@@ -47,7 +48,8 @@ enum HIT_ELEMENTS
 //セーブ＆ロードとシーン間のやり取りするデータ
 struct UserData
 {
-	int mRankingTimeData[11];//ランキング用のデータ
+	char mRankingNameData[11][6];	//名前データ
+	int mRankingTimeData[11];		//タイムデータ
 };
 //------------------------------------------------
 
@@ -60,6 +62,13 @@ struct UserData
 
 //ブロックサイズ
 #define BLOCK_SIZE (46)
+
+//ランキング関連の初期値
+#define SET_NAME	"+++++"
+#define SET_TIME	(9999)
+
+//ゲームクリア後の仮ネーム
+#define NO_NAME	"-----"
 
 //中間点の位置管理用
 struct Point 
@@ -86,6 +95,7 @@ struct Point
 #include "ObjModeChoice.h"
 #include "ObjCP.h"
 #include "ObjNameInput.h"
+#include "ObjRanking.h"
 
 //------------------------------------------------
 
@@ -94,10 +104,10 @@ struct Point
 #include "SceneTitle.h"
 #include "SceneVsCP.h"
 #include "SceneNameInput.h"
+#include "SceneRanking.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
-
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------
