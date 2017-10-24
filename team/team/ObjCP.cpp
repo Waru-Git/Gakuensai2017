@@ -116,10 +116,10 @@ void CObjCP::Action()
 	{
 		if( obj->ShotCheck(false) ==true)//自陣のブロック全てがとまっているか確認する
 		{
-				//自陣のブロック全てがとまっていればd
-				obj->CreateIntervention(ojm_num,false);//お邪魔ブロック生成
-				ojm_num=0;//生成が終わったら0にする
-				return;
+			//自陣のブロック全てがとまっていればd
+			obj->CreateIntervention(ojm_num,false);//お邪魔ブロック生成
+			ojm_num=0;//生成が終わったら0にする
+			return;
 		}
 	}
 	
