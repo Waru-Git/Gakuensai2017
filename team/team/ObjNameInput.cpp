@@ -49,6 +49,10 @@ void CObjNameInput::Action()
 
 		m_name[5] = '\0';//おわりに\0をいれる
 
+		int i = 0;//コンストラクタで持ってくるように変更するまでのデバッグ用
+		strcpy(((UserData*)Save::GetData())->mRankingNameData[i], m_name);		//名前			
+
+
 		//タイトルシーンに移動
 		Scene::SetScene(new CSceneTitle());
 	}
