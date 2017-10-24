@@ -14,11 +14,18 @@ using namespace GameL;
 #include "SceneRanking.h"
 #include "GameHead.h"
 
+
+//コンストラクタ　（CP対戦　終了後用）
+CSceneRanking::CSceneRanking(int rank)
+{
+	m_rank = rank;
+}
+
 //ゲーム初期化メソッド
 void CSceneRanking::InitScene()
 {
 	//ランキング表示オブジェクト作成
-	CObjRanking* ranking = new CObjRanking();
+	CObjRanking* ranking = new CObjRanking(m_rank);
 	Objs::InsertObj(ranking, OBJ_RANKING, 5);
 }
 

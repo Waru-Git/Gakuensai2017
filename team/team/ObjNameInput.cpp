@@ -10,6 +10,12 @@
 //使用するネームスペース
 using namespace GameL;
 
+//コンストラクタ
+CObjNameInput::CObjNameInput(int rank)
+{
+	m_rank = rank;	//ランキング
+}
+
 //イニシャライズ
 void CObjNameInput::Init()
 {
@@ -49,8 +55,9 @@ void CObjNameInput::Action()
 
 		m_name[5] = '\0';//おわりに\0をいれる
 
-		int i = 0;//コンストラクタで持ってくるように変更するまでのデバッグ用
-		strcpy(((UserData*)Save::GetData())->mRankingNameData[i], m_name);		//名前			
+		strcpy(((UserData*)Save::GetData())->mRankingNameData[m_rank - 1], m_name);		//名前			
+		
+		Save::Seve();//UserDataの作成（セーブ）する。
 
 
 		//タイトルシーンに移動

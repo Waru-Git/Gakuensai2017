@@ -10,7 +10,7 @@ using namespace GameL;
 class CObjNameInput :public CObj
 {
 public:
-	CObjNameInput() {};
+	CObjNameInput(int rank);
 	~CObjNameInput() {};
 	void Init();//イニシャライズ
 	void Action();//アクション
@@ -23,4 +23,5 @@ private:
 	bool m_flag;//最初の1回かどうかの判断用
 	bool m_key_flag;//キーが押されているかどうかのフラグ
 	int m_input_count;//入力した回数のカウンター。
+	int m_rank;	//ランキング
 };

@@ -34,15 +34,16 @@ void CObjTitle::Init()
 			OutputDebugStringW(str);
 			//--------------------------------------------------------
 		}
-		//Save::Open();//ランキング情報のロード
+	
+		Save::Open();//ランキング情報のロード
 		
 		for (int i = 0; i < 11; i++)
 		{
 			//情報が足りない場合
 			if (((UserData*)Save::GetData())->mRankingTimeData[i] <= 0)
 			{
-				((UserData*)Save::GetData())->mRankingTimeData[i] = 9999;			//タイム
-				strcpy(((UserData*)Save::GetData())->mRankingNameData[i], "AAAAA");	//名前
+				((UserData*)Save::GetData())->mRankingTimeData[i] = SET_TIME;			//タイム
+				strcpy(((UserData*)Save::GetData())->mRankingNameData[i], SET_NAME);	//名前
 			}
 		}
 

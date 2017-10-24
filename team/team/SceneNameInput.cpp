@@ -14,12 +14,17 @@ using namespace GameL;
 #include "SceneNameInput.h"
 #include "GameHead.h"
 
+//コンストラクタ
+CSceneNameInput::CSceneNameInput(int rank)
+{
+	m_rank = rank;	//ランキングを保存
+}
 
 //ゲームメインの初期化メソッド
 void CSceneNameInput::InitScene()
 {
 	//ネーム入力オブジェクトの作成
-	CObjNameInput* p = new CObjNameInput();
+	CObjNameInput* p = new CObjNameInput(m_rank);
 	Objs::InsertObj(p, OBJ_NAME_INPUT, 5);
 }
 

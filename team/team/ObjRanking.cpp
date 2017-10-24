@@ -11,6 +11,12 @@
 //使用するネームスペース
 using namespace GameL;
 
+//コンストラクタ
+CObjRanking::CObjRanking(int rank)
+{
+	m_rank = rank; //持ってきた順位を保存
+}
+
 //イニシャライズ
 void CObjRanking::Init()
 {
@@ -25,12 +31,21 @@ void CObjRanking::Action()
 	{
 		if (m_key_flag == true)
 		{
-			CObjModeChoice* obj = new CObjModeChoice();
-			Objs::InsertObj(obj, OBJ_MODE_CHOICE, 10);
+			if (m_rank <= 10)	//10位以内なら
+			{
+				//名前入力シーンへ移動
+				Scene::SetScene(new CSceneNameInput(m_rank));
+			}
+			else
+			{
+				//ランキング外なら
+				CObjModeChoice* obj = new CObjModeChoice();
+				Objs::InsertObj(obj, OBJ_MODE_CHOICE, 10);
 
-			m_key_flag = false;
+				m_key_flag = false;
 
-			this->SetStatus(false);//ランキング破棄
+				this->SetStatus(false);//ランキング破棄
+			}
 		}
 	}
 	else

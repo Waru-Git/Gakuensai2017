@@ -10,9 +10,11 @@ using namespace GameL;
 class CSceneRanking : public CScene
 {
 public:
-	CSceneRanking() {};
+	CSceneRanking() { m_rank = -1; };
+	CSceneRanking(int rank);
 	~CSceneRanking() {};
 	void InitScene();//初期化メソッド
 	void Scene();//実行中メソッド
 private:
+	int m_rank;	//ランキング順位
 };
