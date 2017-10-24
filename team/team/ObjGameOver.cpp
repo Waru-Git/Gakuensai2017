@@ -101,13 +101,14 @@ void CObjGameOver::Action()
 			//Save::Seve();//UserDataの作成（セーブ）する。→名前を入力の機能ができたらそっちに移動する
 
 			//デバッグ-------
-
 			//ランキングへ移行
 			Scene::SetScene(new CSceneRanking);
 		}
-
-		//タイトルへ移行
-		Scene::SetScene(new CSceneTitle);		
+		else
+		{
+			//タイトルへ移行
+			Scene::SetScene(new CSceneTitle);
+		}
 	}
 }
 
