@@ -55,6 +55,11 @@ void CObjRanking::Draw()
 		Font::StrDraw(str_time, 250, 130 + 55 * i, 40, c);
 
 
+		//--------------------------------------------------
+
+		//–¼‘O•\Ž¦
+
+		//Font::StrDraw(str_name, 400, 130 + 55 * i, 40, c);
 		wchar_t str_name[256];
 		char name[6];
 		strcpy(name, ((UserData*)Save::GetData())->mRankingNameData[i]);			
