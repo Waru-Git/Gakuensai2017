@@ -18,4 +18,6 @@ public:
 private:
 	int	 m_rank;	//ランキングの順位
 	bool m_key_flag;//キーフラグ
+	bool time_set_flag[11];//タイムセットフラグ
+						  //初期値が入ってるかどうか調べる用
 };

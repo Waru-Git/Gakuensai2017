@@ -34,7 +34,7 @@ void CObjTitle::Init()
 			OutputDebugStringW(str);
 			//--------------------------------------------------------
 		}
-	
+
 		Save::Open();//ランキング情報のロード
 		
 		for (int i = 0; i < 11; i++)
