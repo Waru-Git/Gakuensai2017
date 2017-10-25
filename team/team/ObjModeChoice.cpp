@@ -4,6 +4,7 @@
 #include "GameL\WinInputs.h"
 #include "GameL\DrawTexture.h"
 #include "GameL\Audio.h"
+#include "GameL\UserData.h"
 
 #include "GameHead.h"
 #include "ObjModeChoice.h"
@@ -16,6 +17,9 @@ void CObjModeChoice::Init()
 {
 	m_key_flag = false;
 	select = 1;
+
+	//モードセレクト画面に移動時11位のみ初期化
+	((UserData*)Save::GetData())->mRankingTimeData[10] = SET_TIME;
 
 }
 

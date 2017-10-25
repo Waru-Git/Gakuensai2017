@@ -47,6 +47,8 @@ void CObjTitle::Init()
 			}
 		}
 
+		((UserData*)Save::GetData())->mRankingTimeData[10] = SET_TIME; //ロード後11位のみ初期化
+
 		//デバッグ用--------------------------------------
 		int i = 0;
 		while (i < 11)

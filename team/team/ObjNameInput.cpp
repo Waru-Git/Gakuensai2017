@@ -40,8 +40,7 @@ void CObjNameInput::Action()
 	//初めの2回目以降
 	if (m_first_flag == false)	
 	{
-		/*while (m_input_count < 5)
-		{*/
+
 		if(m_end_flag == false)	//入力が終了していなければ
 		{
 			if (m_key_flag == true)	//キーフラグがオンなら
@@ -73,8 +72,11 @@ void CObjNameInput::Action()
 		{
 			//名前をユーザーデータにコピー
 			strcpy(((UserData*)Save::GetData())->mRankingNameData[m_rank - 1], m_name);					
+		
+			strcpy(((UserData*)Save::GetData())->mRankingNameData[m_rank - 1], m_name);		//名前			
 
 			Save::Seve();//UserDataの作成（セーブ）する。
+		
 
 			//タイトルシーンに移動
 			Scene::SetScene(new CSceneTitle());
