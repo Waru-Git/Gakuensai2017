@@ -49,7 +49,6 @@ void CObjCP::Init()
 	m_shot_x[1]=-1;
 	//----------------------------
 
-
 	//移動の制御フラグ初期化
 	m_down	= true;
 	m_up	= true;
@@ -202,8 +201,6 @@ void CObjCP::Shot_move()
 			}
 		}
 	}
-		
-
 }
 
 
@@ -265,7 +262,6 @@ void CObjCP::Draw()
 		RectSet(445.0f,960.0f,950.0f-360,485.0f,dst);
 		//描画する
 		Draw::Draw(15,&src,&dst,c,0.0f);
-
 		//-------------------------
 
 		//切り取り位置セット 黒色
@@ -282,7 +278,6 @@ void CObjCP::Draw()
 		//切り取り位置
 		RectSet(0.0f,1.0f,2.0f,99.0f,src);
 
-		
 		//描画位置
 		RectSet(450.0f,955.0f,955.0f- m_shoot_time,480.0f,dst);
 
@@ -293,19 +288,6 @@ void CObjCP::Draw()
 		//切り取り位置の設定
 		RectSet(0.0f,0.0f,64.0f,64.0f,src);
 		
-//ブロックの生成予定地の表示---------------------------------------------
-
-		//for(int i=0;i<2;i++)
-		//{
-		//	//表示位置の設定
-		//	RectSet(80.0f+m_shot_y[i]*BLOCK_SIZE,50.0f+m_shot_x[i]*BLOCK_SIZE,
-		//		50.0f+m_shot_x[i]*BLOCK_SIZE+BLOCK_SIZE,80.0f+m_shot_y[i]*BLOCK_SIZE+BLOCK_SIZE,dst);
-		//	
-		//	Draw::Draw(m_npc[ (m_bullet_count+i)%4 ],&src,&dst,c1,0.0f);//描画
-		//}
-
-//ブロックの生成予定地おわり-----------------------------------------------
-
 //後のブロック表示----------------------------------------------------------
 		
 	//1つ後の２つ------------------------------------
@@ -338,25 +320,7 @@ void CObjCP::Draw()
 
 		Draw::Draw(m_npc[(m_bullet_count+3)%4],&src,&dst,c,0.0f);//描画
 
-//後のブロック表示----------------------------------------------------------
-
-	//デバッグ用　AIが上手く作動してるかのチェック表示
-	for(int i=0;i<D_POINT_MAX;i++)
-	{
-		if(D_Point[i].num != -1)//初期値ではないなら
-		{
-			//表示位置の設定
-			RectSet(80.0f+D_Point[i].Delete.y * BLOCK_SIZE,50.0f+ D_Point[i].Delete.x *BLOCK_SIZE,
-				50.0f+ D_Point[i].Delete.x *BLOCK_SIZE +BLOCK_SIZE,80.0f+D_Point[i].Delete.y*BLOCK_SIZE+BLOCK_SIZE,dst);
-			
-			if(D_Point[i].rad==1)
-				Draw::Draw(m_npc[ m_bullet_count ],&src,&dst,c1,0.0f);//描画
-			if(D_Point[i].rad==3)
-				Draw::Draw(m_npc[ m_bullet_count+1 ],&src,&dst,c1,0.0f);//描画	
-		}
-	}
-
-	//デバッグ用終わり
+	//後のブロック表示  終わり----------------------------------------------------------
 	}
 }
 
