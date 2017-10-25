@@ -10,6 +10,7 @@ using namespace GameL;
 class CSceneNameInput :public CScene
 {
 public:
+	CSceneNameInput() {	m_rank = 0;	}//debag
 	CSceneNameInput(int rank);
 	~CSceneNameInput() {};
 	void InitScene();//ゲームメインの初期化のメソッド

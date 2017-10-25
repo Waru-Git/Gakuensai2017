@@ -127,7 +127,7 @@ void CObjRanking::Draw()
 		char name[6];
 		strcpy(name, ((UserData*)Save::GetData())->mRankingNameData[i]);
 
-		mbstowcs(str_name, name, 12);	//wchar_t からchar　に　指定したサイズ分コピー
+		mbstowcs(str_name, name, 12);	//char からwchar_t　に　指定したサイズ分コピー
 
 		Font::StrDraw(str_name, 660, 130 + 55 * i, 40, c);
 	}
