@@ -65,7 +65,7 @@ void CObjNameInput::Action()
 		m_name[5] = '\0';//おわりに\0をいれる
 
 		strcpy(((UserData*)Save::GetData())->mRankingNameData[m_rank - 1], m_name);		//名前			
-		
+
 		Save::Seve();//UserDataの作成（セーブ）する。
 
 		//タイトルシーンに移動
