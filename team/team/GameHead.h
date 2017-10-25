@@ -67,8 +67,8 @@ struct UserData
 #define SET_NAME	"+++++"
 #define SET_TIME	(9999)
 
-//ゲームクリア後の仮ネーム
-#define NO_NAME	"-----"
+//ゲームクリア後の名前未入力の状態に仮でセットする
+#define NO_NAME		"-----"
 
 //中間点の位置管理用
 struct Point 

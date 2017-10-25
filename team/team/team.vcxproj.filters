@@ -25,11 +25,11 @@
     <Filter Include="ソース ファイル\共通ファイル">
       <UniqueIdentifier>{d6c3c46c-804a-4063-8301-8d8a5c0c0d40}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\vsCP\NameInput">
-      <UniqueIdentifier>{7fcbb672-4a82-41b7-949b-a50abfb3020a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Ranking">
       <UniqueIdentifier>{493dab67-3d2b-4053-bba1-4e21ee6f9401}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\NameInput">
+      <UniqueIdentifier>{7fcbb672-4a82-41b7-949b-a50abfb3020a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -124,10 +124,10 @@
       <Filter>ソース ファイル\共通ファイル</Filter>
     </ClCompile>
     <ClCompile Include="SceneNameInput.cpp">
-      <Filter>ソース ファイル\vsCP\NameInput</Filter>
+      <Filter>ソース ファイル\NameInput</Filter>
     </ClCompile>
     <ClCompile Include="ObjNameInput.cpp">
-      <Filter>ソース ファイル\vsCP\NameInput</Filter>
+      <Filter>ソース ファイル\NameInput</Filter>
     </ClCompile>
     <ClCompile Include="SceneRanking.cpp">
       <Filter>ソース ファイル\Ranking</Filter>
@@ -237,10 +237,10 @@
       <Filter>ソース ファイル\Ranking</Filter>
     </ClInclude>
     <ClInclude Include="ObjNameInput.h">
-      <Filter>ソース ファイル\vsCP\NameInput</Filter>
+      <Filter>ソース ファイル\NameInput</Filter>
     </ClInclude>
     <ClInclude Include="SceneNameInput.h">
-      <Filter>ソース ファイル\vsCP\NameInput</Filter>
+      <Filter>ソース ファイル\NameInput</Filter>
     </ClInclude>
     <ClInclude Include="Function.h">
       <Filter>ソース ファイル</Filter>

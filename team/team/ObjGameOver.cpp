@@ -98,8 +98,6 @@ void CObjGameOver::Action()
 			//ランキングをソートして、今回の順位を調べる
 			ranking = RankingSort(((UserData*)Save::GetData())->mRankingTimeData, ((UserData*)Save::GetData())->mRankingNameData);
 
-			Save::Seve();//UserDataの作成（セーブ）する。→名前を入力の機能ができたらそっちに移動する
-
 			//デバッグ-------
 			//ランキングへ移行
 			Scene::SetScene(new CSceneRanking(ranking));
@@ -174,18 +172,11 @@ void CObjGameOver::Result()
 //引数1:タイム配列
 //引数2:名前配列
 //戻り値：今回の順位
-int CObjGameOver::RankingSort(int time[],char m_name[][6])
+int CObjGameOver::RankingSort(int time[],char name[][6])
 {
 	int w;		//タイム交換用変数
 	int ranking;//今回の順位保存用
 	char n[6];	//名前交換用配列
-
-	char name[11][6];
-
-	for (int i = 0; i <= 10; i++)
-	{
-		strcpy(name[i], m_name[i]);
-	}
 
 	//ソート
 	for (int i = 10; i >= 1; i--)

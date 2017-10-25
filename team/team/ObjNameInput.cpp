@@ -20,10 +20,11 @@ CObjNameInput::CObjNameInput(int rank)
 void CObjNameInput::Init()
 {
 	//フラグの初期化
-	m_flag = false;
+	m_first_flag = true;
+	m_key_flag = true;		//キー入力を可能な状態にする
+	m_input_flag = false;
 	m_input_count = 0;
 
-	m_key_flag = true;
 
 	for (int i = 0; i <= 6; i++)
 		m_name[i] = ' ';//半角空白で初期化
@@ -35,14 +36,17 @@ void CObjNameInput::Init()
 //アクション
 void CObjNameInput::Action()
 {
-	if (m_flag == true)	//2週目以降通る
+	//初めの2回目以降
+	if (m_first_flag == false)	
 	{
 		while (m_input_count < 5)
 		{
 			if (m_key_flag == true)	//キーフラグがオンなら
 			{
-				KeyInput(m_input_count);//名前の入力をさせる
-				m_key_flag = false;	//キーフラグをオフにする
+				m_input_flag = KeyInput(m_input_count);//名前の入力をさせる
+				
+				if(m_input_flag == true)//対応ボタンのどこかが押されたら
+					m_key_flag = false;	//キーフラグをオフにする
 			}
 			else //キーフラグがオフなら
 			{
@@ -64,11 +68,12 @@ void CObjNameInput::Action()
 		
 		Save::Seve();//UserDataの作成（セーブ）する。
 
-
 		//タイトルシーンに移動
 		Scene::SetScene(new CSceneTitle());
 	}
-	m_flag = true;
+
+	m_first_flag = false;
+
 }
 
 //ドロー
@@ -82,7 +87,8 @@ void CObjNameInput::Draw()
 
 //ネーム入力のキーボードから文字を読み取る関数
 //引数:入力された文字を入れる配列の要素数
-void CObjNameInput::KeyInput(int number)
+//戻り値：対応しているkeyが押されたら:true 何処も押されていなければ:false
+bool CObjNameInput::KeyInput(int number)
 {
 	//keyの状態を調べる
 	for (char key = 'A'; key <= 'Z'; key++)
@@ -91,13 +97,15 @@ void CObjNameInput::KeyInput(int number)
 		{
 			m_name[number] = key;	//押されたkeyを配列に保存
 			m_input_count++;		//保存位置を一文字進める
-			break;
+			return true;
 		}
 	}
-	//バックスペースが押されたとき
-	if (Input::GetVKey(VK_BACK) == true)
-	{
-		m_name[number] = ' ';	//初期にもどして
-		m_input_count--;		//保存位置を一文字前にずらす
-	}
+	return false;
+	////バックスペースが押されたとき
+	//if (Input::GetVKey(VK_BACK) == true)
+	//{
+	//	m_name[number] = ' ';	//初期にもどして
+	//	m_input_count--;		//保存位置を一文字前にずらす
+	//	return true;
+	//}
 }

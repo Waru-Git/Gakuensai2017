@@ -16,12 +16,13 @@ public:
 	void Action();//アクション
 	void Draw();//ドロー
 
-	void KeyInput(int number);//ネーム入力のキーボードから文字を読み取る関数
+	bool KeyInput(int number);//ネーム入力のキーボードから文字を読み取る関数
 
 private:
-	char m_name[6];//入力された名前の保存用
-	bool m_flag;//最初の1回かどうかの判断用
-	bool m_key_flag;//キーが押されているかどうかのフラグ
+	char m_name[6];		//入力された名前の保存用
+	bool m_first_flag;	//最初の1回だけ処理しないようにするためのフラグ
+	bool m_key_flag;	//キーが入力可能な状態かどうかを表すフラグ
+	bool m_input_flag;	//キー入力されたかどうかを表すフラグ
 	int m_input_count;//入力した回数のカウンター。
 	int m_rank;	//ランキング
 };
