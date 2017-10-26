@@ -95,6 +95,9 @@ struct Point
 #include "Function.h"
 #include "ObjModeChoice.h"
 #include "ObjCP.h"
+#include "ObjNameInput.h"
+#include "ObjExplanation4.h"
+#include "ObjRanking.h"
 
 //------------------------------------------------
 
