@@ -43,6 +43,7 @@ void CObjNameInput::Init()
 	Font::SetStrTex(L"名前を入力してください(英字5文字以内)");
 	Font::SetStrTex(L"最低1文字は入力してください"); 
 	Font::SetStrTex(L"Enterで入力終了");
+	Font::SetStrTex(L"BackSpaceでやり直し");
 	Font::SetStrTex(L"_");
 }
 
@@ -103,13 +104,13 @@ void CObjNameInput::Draw()
 	float c_red[4]{ 1.0f,0.0f,0.0f,1.0f };	//注意文のカラー（赤）
 
 	//文字の描画
-	Font::StrDraw(L"名前を入力してください(英字5文字以内)", 50.0f, 200.0f, 50.0f, c);
+	Font::StrDraw(L"名前を入力してください(英字5文字以内)", 50.0f, 150.0f, 50.0f, c);
+	Font::StrDraw(L"BackSpaceで入力のやり直し", 100.0f, WINDOW_SIZE_H - 50.0f, 30.0f, c);
 	Font::StrDraw(L"Enterで入力終了",WINDOW_SIZE_W - 300.0f,WINDOW_SIZE_H - 50.0f,30.0f,c);
 
 	wchar_t str_name[50];
 
 	mbstowcs(str_name, m_cpy_name,sizeof(m_cpy_name)+1 );	//char からwchar_t　に　指定したサイズ分コピー
-	
 	Font::StrDraw(str_name, 350.0f, 400.0f, 50.0f, c);// 入力した文字を表示
 
 	//_の表示
