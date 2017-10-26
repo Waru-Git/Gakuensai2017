@@ -143,7 +143,7 @@ void CObjRanking::Draw()
 		char name[6];
 		strcpy(name, ((UserData*)Save::GetData())->mRankingNameData[i]);
 
-		mbstowcs(str_name, name, 12);	//wchar_t からchar　に　指定したサイズ分コピー
+		mbstowcs(str_name, name, 12);	//char からwchar_t　に　指定したサイズ分コピー
 
 
 		if(((UserData*)Save::GetData())->mRankingNameData[0] == SET_NAME && i == 0)//ネームに初期文字が入っている場合の1位

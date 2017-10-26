@@ -20,6 +20,7 @@ enum OBJ_NAME
 	OBJ_EX_BLOCK,
 	OBJ_MODE_CHOICE,
 	OBJ_CP,
+	OBJ_EXPLANATION4,
 	OBJ_NAME_INPUT,
 	OBJ_RANKING,
 };
@@ -94,8 +95,6 @@ struct Point
 #include "Function.h"
 #include "ObjModeChoice.h"
 #include "ObjCP.h"
-#include "ObjNameInput.h"
-#include "ObjRanking.h"
 
 //------------------------------------------------
 
@@ -112,5 +111,5 @@ struct Point
 
 //シーンスタートクラス---------------------------
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START  CSceneTitle
+#define SET_GAME_START  CSceneNameInput
 //-----------------------------------------------

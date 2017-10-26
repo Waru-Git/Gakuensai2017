@@ -67,7 +67,7 @@ void CObjExplanation::Draw()
 
 //文字表示-------------------------------------
 
-	Font::StrDraw(L"2/3",950,10,30,moji);
+	Font::StrDraw(L"2/4",950,10,30,moji);
 	//左機体説明
 	Font::StrDraw(L"左機体",150,150,30,moji);
 	Font::StrDraw(L"上移動",375,210,25,moji);
@@ -82,8 +82,8 @@ void CObjExplanation::Draw()
 	Font::StrDraw(L"弾発射",750,410,25,moji);
 	Font::StrDraw(L"弾回転(右回転)",750,510,25,moji);
 
-	Font::StrDraw(L"Next Page : → / D", 360, 660, 32, moji);
-	Font::StrDraw(L"Back Page : ← / A", 360, 692, 32, moji);
+	Font::StrDraw(L"Next Page   : → / D", 360, 660, 32, moji);
+	Font::StrDraw(L"Back Page   : ← / A", 360, 692, 32, moji);
 
 //文字表示おわり----------------------------------------------------
 		

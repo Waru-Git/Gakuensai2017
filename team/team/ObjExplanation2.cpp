@@ -26,7 +26,7 @@ void CObjExplanation2::Action()
 		{
 			//説明オブジェクト作成
 			CObjExplanation* obj = new CObjExplanation();//説明オブジェクト2作成
-			Objs::InsertObj(obj, OBJ_EXPLANATION3, 10);
+			Objs::InsertObj(obj, OBJ_EXPLANATION, 10);
 
 			m_key_flag = false;
 
@@ -69,7 +69,7 @@ void CObjExplanation2::Draw()
 	Draw::Draw(22,&src,&dst,c,0.0f);//描画
 
 
-	Font::StrDraw(L"1/3",950,10,30,c);
+	Font::StrDraw(L"1/4",950,10,30,c);
 
 	Font::StrDraw(L"Next Page   : → / D", 360, 660, 32, c);
 	Font::StrDraw(L"Mode Select : ← / A", 360, 692, 32, c);

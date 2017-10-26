@@ -138,6 +138,9 @@
     <ClCompile Include="Function.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="ObjExplanation4.cpp">
+      <Filter>ソース ファイル\タイトル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -229,21 +232,6 @@
     </ClInclude>
     <ClInclude Include="ObjMain.h">
       <Filter>ソース ファイル\共通ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneRanking.h">
-      <Filter>ソース ファイル\Ranking</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjRanking.h">
-      <Filter>ソース ファイル\Ranking</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjNameInput.h">
-      <Filter>ソース ファイル\NameInput</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneNameInput.h">
-      <Filter>ソース ファイル\NameInput</Filter>
-    </ClInclude>
-    <ClInclude Include="Function.h">
-      <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
