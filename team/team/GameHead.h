@@ -21,6 +21,8 @@ enum OBJ_NAME
 	OBJ_MODE_CHOICE,
 	OBJ_CP,
 	OBJ_EXPLANATION4,
+	OBJ_NAME_INPUT,
+	OBJ_RANKING,
 };
 //------------------------------------------------
 
@@ -47,10 +49,8 @@ enum HIT_ELEMENTS
 //セーブ＆ロードとシーン間のやり取りするデータ
 struct UserData
 {
-	int mSeveData;	//サンプルセーブデータ
-	int m_pointL;	//左の人用得点
-	int m_pointR;	//右の人用得点
-	int mRankingTimeData[11];//ランキング用のデータ
+	char mRankingNameData[11][6];	//名前データ
+	int mRankingTimeData[11];		//タイムデータ
 };
 //------------------------------------------------
 
@@ -64,12 +64,19 @@ struct UserData
 //ブロックサイズ
 #define BLOCK_SIZE (46)
 
+//ランキング関連の初期値
+#define SET_NAME	"+++++"
+#define SET_TIME	(9999)
+
+//ゲームクリア後の名前未入力の状態に仮でセットする
+#define NO_NAME		"-----"
+
 //中間点の位置管理用
-	struct Point 
-	{
-		float x;
-		float y;
-	};
+struct Point 
+{
+	float x;
+	float y;
+};
 
 //------------------------------------------------
 //ゲーム内で使用するクラスヘッダ------------------
@@ -88,7 +95,6 @@ struct UserData
 #include "Function.h"
 #include "ObjModeChoice.h"
 #include "ObjCP.h"
-#include"ObjExplanation4.h"
 
 //------------------------------------------------
 
@@ -96,13 +102,14 @@ struct UserData
 #include "SceneMain.h"
 #include "SceneTitle.h"
 #include "SceneVsCP.h"
+#include "SceneNameInput.h"
+#include "SceneRanking.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
-
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START  CSceneTitle
+#define SET_GAME_START  CSceneNameInput
 //-----------------------------------------------

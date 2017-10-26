@@ -25,6 +25,12 @@
     <Filter Include="ソース ファイル\共通ファイル">
       <UniqueIdentifier>{d6c3c46c-804a-4063-8301-8d8a5c0c0d40}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Ranking">
+      <UniqueIdentifier>{493dab67-3d2b-4053-bba1-4e21ee6f9401}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\NameInput">
+      <UniqueIdentifier>{7fcbb672-4a82-41b7-949b-a50abfb3020a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -105,9 +111,6 @@
     <ClCompile Include="CObjIntervention.cpp">
       <Filter>ソース ファイル\共通ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Function.cpp">
-      <Filter>ソース ファイル\共通ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="ObjBackground.cpp">
       <Filter>ソース ファイル\共通ファイル</Filter>
     </ClCompile>
@@ -119,6 +122,21 @@
     </ClCompile>
     <ClCompile Include="ObjMain.cpp">
       <Filter>ソース ファイル\共通ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneNameInput.cpp">
+      <Filter>ソース ファイル\NameInput</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjNameInput.cpp">
+      <Filter>ソース ファイル\NameInput</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneRanking.cpp">
+      <Filter>ソース ファイル\Ranking</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjRanking.cpp">
+      <Filter>ソース ファイル\Ranking</Filter>
+    </ClCompile>
+    <ClCompile Include="Function.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="ObjExplanation4.cpp">
       <Filter>ソース ファイル\タイトル</Filter>
@@ -203,9 +221,6 @@
     <ClInclude Include="CObjIntervention.h">
       <Filter>ソース ファイル\共通ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Function.h">
-      <Filter>ソース ファイル\共通ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="ObjBackground.h">
       <Filter>ソース ファイル\共通ファイル</Filter>
     </ClInclude>
@@ -217,9 +232,6 @@
     </ClInclude>
     <ClInclude Include="ObjMain.h">
       <Filter>ソース ファイル\共通ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjExplanation4.h">
-      <Filter>ソース ファイル\タイトル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

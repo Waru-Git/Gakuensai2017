@@ -4,6 +4,7 @@
 #include "GameL\WinInputs.h"
 #include "GameL\DrawTexture.h"
 #include "GameL\Audio.h"
+#include "GameL\UserData.h"
 
 #include "GameHead.h"
 #include "ObjModeChoice.h"
@@ -17,6 +18,9 @@ void CObjModeChoice::Init()
 	m_key_flag = false;
 	select = 1;
 
+	//モードセレクト画面に移動時11位のみ初期化
+	((UserData*)Save::GetData())->mRankingTimeData[10] = SET_TIME;
+
 }
 
 //アクション
@@ -26,39 +30,39 @@ void CObjModeChoice::Action()
 	{
 		if(m_key_flag == true)
 		{
-		//説明が選択されたならなら
-		if(select == 1)
-		{
-			//説明オブジェクト3作成
-			CObjExplanation2* obj=new CObjExplanation2();//説明オブジェクト2作成
-			Objs::InsertObj(obj,OBJ_EXPLANATION2,10);
+			//説明が選択されたならなら
+			if(select == 1)
+			{
+				//説明オブジェクト1作成
+				CObjExplanation2* obj=new CObjExplanation2();//説明オブジェクト2作成
+				Objs::InsertObj(obj,OBJ_EXPLANATION2,10);
 
-			this->SetStatus(false);
-			m_key_flag = false;
+				this->SetStatus(false);
+				m_key_flag = false;
 
-		}
-		//COM対戦が選択されたなら
-		if(select == 2)
-		{
-			//COM対戦メイン移行
-			Scene::SetScene(new CSceneVsCP());
-			m_key_flag = false;
-		}
-		//対戦(オフライン)が選択されたなら
-		if(select == 3)
-		{
-			//対戦(オフライン)に移行
-			Scene::SetScene(new CSceneMain());
-			m_key_flag = false;
-		}
-		//対戦(オンライン)が選択されたなら
-		if(select == 4)
-		{
-			//対戦(オンラインに移行)
-			;
-		}
+			}
+			//COM対戦が選択されたなら
+			if(select == 2)
+			{
+				//COM対戦メイン移行
+				Scene::SetScene(new CSceneVsCP());
+				m_key_flag = false;
+			}
+			//対戦(オフライン)が選択されたなら
+			if(select == 3)
+			{
+				//対戦(オフライン)に移行
+				Scene::SetScene(new CSceneMain());
+				m_key_flag = false;
+			}
+			//ランキングが選択されたなら
+			if(select == 4)
+			{
+				//ランキングへ移行
+				Scene::SetScene(new CSceneRanking(99));
 
-
+				m_key_flag = false;
+			}
 		}
 	}
 
@@ -137,7 +141,6 @@ void CObjModeChoice::Action()
 		}
 	}
 
-
 }
 //ドロー
 void CObjModeChoice::Draw()
@@ -176,13 +179,11 @@ void CObjModeChoice::Draw()
 
 	if(select == 4)
 	{
-		Font::StrDraw(L"対戦", 600, 550, 50, red);
-		Font::StrDraw(L"(オンライン)", 700,560,30,red);
-		Font::StrDraw(L"～～※実装予定～～",600,600,30,red);
+		Font::StrDraw(L"ランキング", 600, 550, 50, red);
 	}
 	else
 	{
-		Font::StrDraw(L"対戦(オンライン)", 600, 550, 30, c);
+		Font::StrDraw(L"ランキング", 600, 550, 30, c);
 	}
 
 }

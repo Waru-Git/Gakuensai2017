@@ -34,10 +34,6 @@ void CObjMain::Init()
 		}
 	}
 
-	//得点の初期化--------------------------
-	( (UserData*)Save::GetData() )->m_pointL = 0;
-	( (UserData*)Save::GetData() )->m_pointR = 0;
-	
 	//勝利判定フラグ初期化
 	m_vc_r=false;
 	m_vc_l-false;
@@ -259,15 +255,6 @@ void CObjMain::Draw()
 				}
 			}
 		}
-		//得点の描画　左
-		/*float cc[4]={1.0f,1.0f,1.0f,1.0f};
-		wchar_t str[128];
-		swprintf_s(str,L"score: %d",((UserData*)Save::GetData() )->m_pointL);
-		Font::StrDraw(str,50,450,50,cc);*/
-
-		//得点の描画　右
-		/*swprintf_s(str,L"score: %d",((UserData*)Save::GetData() )->m_pointR);
-		Font::StrDraw(str,670,450,50,cc);*/
 	}
 
 	//切り取り位置の設定
@@ -436,9 +423,6 @@ void CObjMain::CheckMap(int x, int y,bool lr)
 		OutputDebugStringW(str);
 		//----------------------------------------------------
 
-		//得点計算
-		Score(x,y,number,ojm_count,lr);
-
 		//左
 		for(int i=0 ; i<number;i++)
 		{
@@ -531,38 +515,6 @@ void CObjMain::CreateIntervention(int number,bool lr)
 			FlagOn(19-j,y);//オブジェクト生成フラグをオンにする
 		}
 		
-	}
-}
-
-//得点計算-------------------------------
-//引数1:基準のｘ要素
-//引数2:基準のｙ要素
-//引数1:消した合計数
-//引数2:お邪魔ブロックを消した数
-//引数3:左右どちらがわから消したか
-void CObjMain::Score(int x,int y,int number ,int ojm_count ,bool lr)//スコアの計算
-{
-	for(int i=0;i<=number;i++)
-	{
-		//お邪魔以外のブロックが入っていれば
-		if(m_map[y][x+i].num >=0 && m_map[y][x].num<=5)
-		{
-			if(lr==true)
-			{
-				if(x+i<=9)//左から消したとき左半分なら得点100点
-					((UserData*)Save::GetData() )->m_pointL += 100;
-				else if(x+i>=10)//右半分なら２００点
-					((UserData*)Save::GetData() )->m_pointL += 200;
-			}
-			else
-			{
-				
-				if(x-i>=10)//右から消したとき右半分なら得点100点
-					((UserData*)Save::GetData() )->m_pointR += 100;
-				else if(x-i<=9)
-					((UserData*)Save::GetData() )->m_pointR += 200;
-			}
-		}
 	}
 }
 

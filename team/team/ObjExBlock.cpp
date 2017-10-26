@@ -21,6 +21,7 @@
 //使用するネームスペース
 using namespace GameL;
 
+//コンストラクタ
 CObjExBlock::CObjExBlock(int color)
 {
 	m_color = color;

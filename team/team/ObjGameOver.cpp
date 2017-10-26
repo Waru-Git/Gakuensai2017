@@ -30,7 +30,9 @@ void CObjGameOver::Init()
 	m_yy = 800.0f;
 
 	count=0;
-	
+	ranking = 0;
+
+
 	//CP戦かどうかしらべる------
 	//マップオブジェクトの呼び出し
 	CObjMain * obj = (CObjMain*)Objs::GetObj(OBJ_MAIN);
@@ -70,18 +72,41 @@ void CObjGameOver::Action()
 		{
 			//マップオブジェクトの呼び出し
 			CObjMain * obj_main = (CObjMain*)Objs::GetObj(OBJ_MAIN);
+			
+			//debag---------
+			/*char name[11][6];
 
-			//ランキングの最下位に今回のタイムを保存
+			for (int i = 0; i <= 10; i++)
+			{
+				strcpy(name[i], ((UserData*)Save::GetData())->mRankingNameData[i]);
+			}*/
+			//----------------------------------
+
+			//ランキングの最下位に今回のタイムと名前を保存
 			((UserData*)Save::GetData())->mRankingTimeData[10] = obj_main->ReturnTime();
+			strcpy( ((UserData*)Save::GetData())->mRankingNameData[10],NO_NAME);
 
-			//ランキングのをソートする
-			RankingSort(((UserData*)Save::GetData())->mRankingTimeData);
+			//for (int i = 0; i < 11; i++)
+			//{
+			//	//デバッグ用---------------------------------------
+			//	wchar_t str[256];
+			//	swprintf_s(str, L"mRankingTimeData[i]:%d", ((UserData*)Save::GetData())->mRankingNameData[i]);
+			//	OutputDebugStringW(str);
+			//	//--------------------------------------------------------
+			//}
 
-			Save::Seve();//UserDataの作成（セーブ）する。
+			//ランキングをソートして、今回の順位を調べる
+			ranking = RankingSort(((UserData*)Save::GetData())->mRankingTimeData, ((UserData*)Save::GetData())->mRankingNameData);
+
+			//デバッグ-------
+			//ランキングへ移行
+			Scene::SetScene(new CSceneRanking(ranking));
 		}
-
-		//タイトルへ移行
-		Scene::SetScene(new CSceneTitle);		
+		else
+		{
+			//タイトルへ移行
+			Scene::SetScene(new CSceneTitle);
+		}
 	}
 }
 
@@ -143,26 +168,46 @@ void CObjGameOver::Result()
 	}
 }
 
-//ランキングソートメソッド
-//引数１int[11]:ランキング用は配列
 //低い順でソートを行う
-void CObjGameOver::RankingSort(int rank[11])
+//引数1:タイム配列
+//引数2:名前配列
+//戻り値：今回の順位
+int CObjGameOver::RankingSort(int time[],char name[][6])
 {
-	//値の交換用変数
-	int w;
+	int w;		//タイム交換用変数
+	int ranking;//今回の順位保存用
+	char n[6];	//名前交換用配列
 
-	//バブルソート
-	for (int i = 0; i<10; i++)
+	//ソート
+	for (int i = 10; i >= 1; i--)
 	{
-		for (int j = i + 1; j<11; j++)
+		for (int j = i - 1; j >= 0; j--)
 		{
-			if (rank[i] >= rank[j])
+			if (time[i] <= time[j])
 			{
-				//値の交換
-				w = rank[i];
-				rank[i] = rank[j];
-				rank[j] = w;
+				//タイムの交換
+				w = time[i];
+				time[i] = time[j];
+				time[j]= w;
+
+				//名前の交換
+				strcpy(n, name[i]);
+				strcpy(name[i], name[j]);
+				strcpy(name[j], n);
 			}
 		}
 	}
+
+	//未入力の名前箇所を探して今回の順位を調べる
+	for (int i = 0; i < 11; i++)
+	{
+		//名前が未入力なら
+		if (strcmp(name[i], NO_NAME) == 0)
+		{
+			ranking = i + 1; //順位保存
+			break;
+		}
+	}
+
+	return ranking;
 }
