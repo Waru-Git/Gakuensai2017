@@ -67,6 +67,7 @@ void CObjRanking::Action()
 void CObjRanking::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float yellow[4] = { 1.0f,1.0f,0.0f,1.0f };
 	wchar_t str_time[256];
 
 	//ランキング
@@ -89,7 +90,7 @@ void CObjRanking::Draw()
 			if (j == 9)
 			{
 				swprintf_s(str_time, L"%2d位     --:--", i + 1);
-				Font::StrDraw(str_time, 250, 130 + 55 * i, 40, c);
+				Font::StrDraw(str_time, 250, 130 + 55 * i, 40, c);				
 			}
 			else if (j == 10 && i < 10)
 			{
@@ -100,17 +101,32 @@ void CObjRanking::Draw()
 		//初期値9999が入っていない場合
 		else
 		{
-			if (j == 9)//10位以上なら11位表示しない
+			//10位以上なら11位表示しない
+			if (j == 9 && ((UserData*)Save::GetData())->mRankingTimeData[0] == SET_TIME)
 			{
 				swprintf_s(str_time, L"%2d位     %02d:%02d", i + 1, ((UserData*)Save::GetData())->mRankingTimeData[i] / 60, ((UserData*)Save::GetData())->mRankingTimeData[i] % 60);
 				Font::StrDraw(str_time, 250, 130 + 55 * i, 40, c);
 			}
-			else if (j == 10 && i == 10)//10位以下なら11位表示
+			//データの0番目に初期値が入ってない場合
+			else if (j == 9 && ((UserData*)Save::GetData())->mRankingTimeData[0] != SET_TIME)
+			{
+				swprintf_s(str_time, L"%2d位     %02d:%02d", i + 1, ((UserData*)Save::GetData())->mRankingTimeData[i] / 60, ((UserData*)Save::GetData())->mRankingTimeData[i] % 60);
+				Font::StrDraw(str_time, 135, 110 + 55 * i, 60, yellow);
+			}
+			//入っている場合
+			else if (((UserData*)Save::GetData())->mRankingTimeData[0] != SET_TIME && i == 0)
+			{
+				swprintf_s(str_time, L"%2d位     %02d:%02d", i + 1, ((UserData*)Save::GetData())->mRankingTimeData[i] / 60, ((UserData*)Save::GetData())->mRankingTimeData[i] % 60);
+				Font::StrDraw(str_time, 135, 110 + 55 * i, 60, yellow);
+			}
+			//10位以下なら11位表示
+			else if (j == 10 && i == 10)
 			{
 				swprintf_s(str_time, L"         %02d:%02d",((UserData*)Save::GetData())->mRankingTimeData[i] / 60, ((UserData*)Save::GetData())->mRankingTimeData[i] % 60);
 				Font::StrDraw(str_time, 225, 140 + 55 * i, 45, c);
 			}
-			else if (j == 10 && i < 10)//1～10位表示
+			//1～10位表示
+			else if (j == 10 && i < 10 && i > 0)
 			{
 				swprintf_s(str_time, L"%2d位     %02d:%02d", i + 1, ((UserData*)Save::GetData())->mRankingTimeData[i] / 60, ((UserData*)Save::GetData())->mRankingTimeData[i] % 60);
 				Font::StrDraw(str_time, 250, 130 + 55 * i, 40, c);
@@ -129,7 +145,13 @@ void CObjRanking::Draw()
 
 		mbstowcs(str_name, name, 12);	//wchar_t からchar　に　指定したサイズ分コピー
 
-		Font::StrDraw(str_name, 660, 130 + 55 * i, 40, c);
+
+		if(((UserData*)Save::GetData())->mRankingNameData[0] == SET_NAME && i == 0)//ネームに初期文字が入っている場合の1位
+			Font::StrDraw(str_name, 660, 130 + 55 * i, 40, c);
+		else if (i == 0 && ((UserData*)Save::GetData())->mRankingTimeData[0] != SET_TIME)//入っていない場合の1位
+			Font::StrDraw(str_name, 700, 110 + 55 * i, 60, yellow);
+		else
+			Font::StrDraw(str_name, 660, 130 + 55 * i, 40, c);//それ以外の順位
 	}
 	//-------------------------------------------------
 }
