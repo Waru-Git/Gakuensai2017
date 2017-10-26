@@ -98,7 +98,6 @@ struct Point
 #include "ObjNameInput.h"
 #include "ObjExplanation4.h"
 #include "ObjRanking.h"
-
 //------------------------------------------------
 
 //ゲームシーンオブジェクトヘッダ------------------
@@ -114,5 +113,5 @@ struct Point
 
 //シーンスタートクラス---------------------------
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START  CSceneNameInput
+#define SET_GAME_START  CSceneTitle
 //-----------------------------------------------

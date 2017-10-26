@@ -50,11 +50,6 @@ void CObjMain::Init()
 	//ゲームオーバー管理
 	flag = false;
 
-	//デバッグ用
-	ojm_num=0;//お邪魔の数を保存
-	del_num=0;//最終的に消す数を保存
-	sum_num=0;//お邪魔ふくめた数を保存
-
 	//AI用
 	for(int i=0;i<7;i++)
 	{
@@ -363,11 +358,6 @@ void CObjMain::CheckMap(int x, int y,bool lr)
 
 	number=abs(pos[1]-pos[0])+1;//つながっている数(お邪魔と両サイド込み)を求める
 
-
-	wchar_t str[256];
-	wsprintf(str,L"number(両サイド、お邪魔こみ）%d\n",number);
-	OutputDebugString(str);
-
 	if(lr==true)//左側プレーヤー
 	{
 		//左
@@ -394,26 +384,9 @@ void CObjMain::CheckMap(int x, int y,bool lr)
 	// ４つ以上
 	//--------------------------------------------
 	int nBlockNum = number - ojm_count;//色ブロックのみの数(つながっている数 - お邪魔の数　)
-
-	wsprintf(str,L"number(色ブロックのみ）%d\n",nBlockNum);
-	OutputDebugString(str);
-	
 	
 	if(nBlockNum >= 4)//色ブロックのみの数が4以上なら
 	{
-
-		//----------------------------------
-		sum_num = number;
-		ojm_num = ojm_count;
-		del_num = nBlockNum;
-
-
-		wchar_t str[256];
-		swprintf_s(str,L"sum_num %d ojm_nm %d del_num %d\n",sum_num,ojm_num,del_num);
-
-		OutputDebugStringW(str);
-		//----------------------------------------------------
-
 		//左
 		for(int i=0 ; i<number;i++)
 		{
@@ -422,9 +395,7 @@ void CObjMain::CheckMap(int x, int y,bool lr)
 			else
 				m_map[y][x-i].num=98;//マップに爆発処理用の数字(98)をいれる
 		}
-
 	}
-
 
 	if(nBlockNum>=5)//お邪魔を除いて消した数が5以上なら
 	{
@@ -454,10 +425,6 @@ void CObjMain::CheckMap(int x, int y,bool lr)
 			obj_h->SetOjmNum(nBlockNum-4);//生成するお邪魔の数を保存
 		}	
 		//------------------------------------------
-	}
-	else
-	{
-		//MessageBox(NULL,L"お邪魔ブロックの数のほうが多い",L"OjyamaBlock",MB_OK);
 	}
 }
 

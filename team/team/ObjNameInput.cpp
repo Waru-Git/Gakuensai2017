@@ -43,6 +43,7 @@ void CObjNameInput::Init()
 	Font::SetStrTex(L"名前を入力してください(英字5文字以内)");
 	Font::SetStrTex(L"最低1文字は入力してください"); 
 	Font::SetStrTex(L"Enterで入力終了");
+	Font::SetStrTex(L"BackSpaceでやり直し");
 	Font::SetStrTex(L"_");
 }
 
@@ -79,12 +80,6 @@ void CObjNameInput::Action()
 				if (Input::GetVKey(m_name[m_input_count - 1]) == false)
 					m_key_flag = true;	//キーフラグをオンにする
 			}
-
-			//デバッグ用---------------------------------------
-			wchar_t str[256];
-			swprintf_s(str, L"m_input_count:%d", m_input_count);
-			OutputDebugStringW(str);
-			//--------------------------------------------------------
 		}
 		else		//入力が完了したら
 		{
@@ -109,13 +104,13 @@ void CObjNameInput::Draw()
 	float c_red[4]{ 1.0f,0.0f,0.0f,1.0f };	//注意文のカラー（赤）
 
 	//文字の描画
-	Font::StrDraw(L"名前を入力してください(英字5文字以内)", 50.0f, 200.0f, 50.0f, c);
+	Font::StrDraw(L"名前を入力してください(英字5文字以内)", 50.0f, 150.0f, 50.0f, c);
+	Font::StrDraw(L"BackSpaceで入力のやり直し", 100.0f, WINDOW_SIZE_H - 50.0f, 30.0f, c);
 	Font::StrDraw(L"Enterで入力終了",WINDOW_SIZE_W - 300.0f,WINDOW_SIZE_H - 50.0f,30.0f,c);
 
 	wchar_t str_name[50];
 
 	mbstowcs(str_name, m_cpy_name,sizeof(m_cpy_name)+1 );	//char からwchar_t　に　指定したサイズ分コピー
-	
 	Font::StrDraw(str_name, 350.0f, 400.0f, 50.0f, c);// 入力した文字を表示
 
 	//_の表示
@@ -140,23 +135,23 @@ bool CObjNameInput::KeyInput(int number)
 	//EnterKeyが押されたとき
 	if (Input::GetVKey(VK_RETURN) == true)
 	{
-		if(number==0)//未入力の状態なら
+		if (m_name[0] == ' ')//未入力の状態なら
 			m_noname_flag = true;//入力を促す文章の追加用にフラグをオンにする
 		else
 			m_name[number] = '\0';	//\0を入れる
 		return true;
 	}
 	
-	////バックスペースが押されたとき
-	//if (Input::GetVKey(VK_BACK) == true)
-	//{
-	//	if (m_input_count != 0)//未入力の状態でなければ
-	//	{
-	//		m_name[number] = ' ';	//初期にもどして
-	//		m_input_count--;		//保存位置を一文字前にずらす
-	//	}
-	//	return true;
-	//}
+	//バックスペースが押されたとき
+	if (Input::GetVKey(VK_BACK) == true)
+	{		
+		for(int i=0;i<6;i++)
+			m_name[i]=' ';//配列の初期化
+
+		m_input_count = 0;
+
+		return true;		
+	}
 
 	//keyの状態を調べる
 	for (char key = 'A'; key <= 'Z'; key++)
@@ -172,7 +167,6 @@ bool CObjNameInput::KeyInput(int number)
 		}
 	}
 	return false;
-	
 }
 
 //文字列入力が終わっているか(\0があるか)調べる関数
