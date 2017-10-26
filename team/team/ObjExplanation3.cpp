@@ -107,7 +107,8 @@ void CObjExplanation3::Draw()
 
 	Font::StrDraw(L"　・お邪魔ブロック",100,160,40,c);
 	Font::StrDraw(L"    消すことのできないブロック。", 150, 210 , 28, c);
-	Font::StrDraw(L"    次に降ってくるお邪魔の数を表示しています。", 150, 240, 28, c);
+	Font::StrDraw(L"    横の数字は次に降ってくるお邪魔の数を", 150, 240, 28, c);
+	Font::StrDraw(L"    表示しています。", 150, 270, 28, c);
 
 	//ゲージの説明
 	Font::StrDraw(L"　・ゲージ",100,380,40,c);

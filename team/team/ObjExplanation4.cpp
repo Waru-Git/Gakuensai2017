@@ -67,14 +67,14 @@ void CObjExplanation4::Draw()
 	Font::StrDraw(L"4/4", 950, 10, 30, moji);
 
 	//タイム表示
-	Font::StrDraw(L"00:41", 100, 150, 50, moji);
+	Font::StrDraw(L"00:41", 100, 210, 50, moji);
 
 	//タイムの説明文
-	Font::StrDraw(L"･タイムの説明",270,60,40,moji);
+	Font::StrDraw(L"･タイムの説明",270,120,40,moji);
 
-	Font::StrDraw(L"タイムは対戦開始から決着するまでの時間です。", 280, 130, 30, moji);
-	Font::StrDraw(L"タイムの早い上位10人がランキングに", 280, 180, 30, moji);
-	Font::StrDraw(L"表示･記録されます。", 280, 230, 30, moji);
+	Font::StrDraw(L"タイムは対戦開始から決着するまでの時間です。", 280, 190, 30, moji);
+	Font::StrDraw(L"タイムの早い上位10人がランキングに", 280, 240, 30, moji);
+	Font::StrDraw(L"表示･記録されます。", 280, 290, 30, moji);
 
 	//Font::StrDraw(L"･お邪魔ブロックの説明", 270, 300, 40, c);
 	//Font::StrDraw(L"お邪魔ブロックを間に挟む、又は", 280, 370, 30, c);
@@ -89,9 +89,9 @@ void CObjExplanation4::Draw()
 	//Font::StrDraw(L"次に降ってくるお邪魔の数を表示しています。", 280, 590, 30, moji);
 
 	//勝利判定の説明
-	Font::StrDraw(L"･勝敗について", 270, 330, 40, c);
-	Font::StrDraw(L"相手の端のマスが埋まり、一定時間が経過すると", 280, 400, 28, c);
-	Font::StrDraw(L"勝利となる。", 280, 450, 28, c);
+	Font::StrDraw(L"･勝敗について", 270, 390, 40, c);
+	Font::StrDraw(L"相手の端のマスが埋まり、一定時間が経過すると", 280, 460, 28, c);
+	Font::StrDraw(L"勝利となる。", 280, 510, 28, c);
 
 
 	Font::StrDraw(L"Mode Select : → / D", 360, 660, 32, c);

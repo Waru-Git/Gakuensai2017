@@ -73,32 +73,13 @@ void CObjGameOver::Action()
 			//マップオブジェクトの呼び出し
 			CObjMain * obj_main = (CObjMain*)Objs::GetObj(OBJ_MAIN);
 			
-			//debag---------
-			/*char name[11][6];
-
-			for (int i = 0; i <= 10; i++)
-			{
-				strcpy(name[i], ((UserData*)Save::GetData())->mRankingNameData[i]);
-			}*/
-			//----------------------------------
-
 			//ランキングの最下位に今回のタイムと名前を保存
 			((UserData*)Save::GetData())->mRankingTimeData[10] = obj_main->ReturnTime();
 			strcpy( ((UserData*)Save::GetData())->mRankingNameData[10],NO_NAME);
 
-			//for (int i = 0; i < 11; i++)
-			//{
-			//	//デバッグ用---------------------------------------
-			//	wchar_t str[256];
-			//	swprintf_s(str, L"mRankingTimeData[i]:%d", ((UserData*)Save::GetData())->mRankingNameData[i]);
-			//	OutputDebugStringW(str);
-			//	//--------------------------------------------------------
-			//}
-
 			//ランキングをソートして、今回の順位を調べる
 			ranking = RankingSort(((UserData*)Save::GetData())->mRankingTimeData, ((UserData*)Save::GetData())->mRankingNameData);
 
-			//デバッグ-------
 			//ランキングへ移行
 			Scene::SetScene(new CSceneRanking(ranking));
 		}
