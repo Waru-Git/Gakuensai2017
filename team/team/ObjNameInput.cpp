@@ -79,12 +79,6 @@ void CObjNameInput::Action()
 				if (Input::GetVKey(m_name[m_input_count - 1]) == false)
 					m_key_flag = true;	//キーフラグをオンにする
 			}
-
-			//デバッグ用---------------------------------------
-			wchar_t str[256];
-			swprintf_s(str, L"m_input_count:%d", m_input_count);
-			OutputDebugStringW(str);
-			//--------------------------------------------------------
 		}
 		else		//入力が完了したら
 		{
@@ -140,23 +134,23 @@ bool CObjNameInput::KeyInput(int number)
 	//EnterKeyが押されたとき
 	if (Input::GetVKey(VK_RETURN) == true)
 	{
-		if(number==0)//未入力の状態なら
+		if (m_name[0] == ' ')//未入力の状態なら
 			m_noname_flag = true;//入力を促す文章の追加用にフラグをオンにする
 		else
 			m_name[number] = '\0';	//\0を入れる
 		return true;
 	}
 	
-	////バックスペースが押されたとき
-	//if (Input::GetVKey(VK_BACK) == true)
-	//{
-	//	if (m_input_count != 0)//未入力の状態でなければ
-	//	{
-	//		m_name[number] = ' ';	//初期にもどして
-	//		m_input_count--;		//保存位置を一文字前にずらす
-	//	}
-	//	return true;
-	//}
+	//バックスペースが押されたとき
+	if (Input::GetVKey(VK_BACK) == true)
+	{		
+		for(int i=0;i<6;i++)
+			m_name[i]=' ';//配列の初期化
+
+		m_input_count = 0;
+
+		return true;		
+	}
 
 	//keyの状態を調べる
 	for (char key = 'A'; key <= 'Z'; key++)
@@ -172,7 +166,6 @@ bool CObjNameInput::KeyInput(int number)
 		}
 	}
 	return false;
-	
 }
 
 //文字列入力が終わっているか(\0があるか)調べる関数
