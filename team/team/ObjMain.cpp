@@ -187,13 +187,6 @@ void CObjMain::Action()
 	m_vc_l=VictoryCheck(true);//左
 	m_vc_r=VictoryCheck(false);//右
 	
-	//デバッグ用
-	if(Input::GetVKey('Y')==true)
-	{
-		m_vc_l=true;
-		m_vc_r=true;
-	}
-	
 	if(flag == false)
 	{
 		VictoryProcess(vs_CP);//勝利判定をみたしているか調べ、満たしていれば処理をする

@@ -62,11 +62,6 @@ void CObjGameOver::Action()
 		float v =Audio::VolumeMaster( 0 );
 		v =Audio::VolumeMaster( (1.0-v) );
 
-		//タイム計測＆ランキング保存システムのデバッグ用
-		m_cp_flag = true;
-		m_pattern = 1;
-		//------------------------------------------
-
 		//CP戦　かつ　左プレイヤーの勝利なら
 		if (m_cp_flag == true && m_pattern == 1)
 		{
