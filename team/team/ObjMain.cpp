@@ -409,8 +409,6 @@ void CObjMain::CheckMap(int x, int y,bool lr)
 	if(nBlockNum >= 4)//色ブロックのみの数が4以上なら
 	{
 
-		//-----------------------------------
-		//デバッグ用
 		//----------------------------------
 		sum_num = number;
 		ojm_num = ojm_count;
