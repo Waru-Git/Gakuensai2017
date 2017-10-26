@@ -34,7 +34,7 @@ void CObjExBlock::Init()
 
 	m_vx = 2.0f;
 	m_px= 700.0f;
-	m_py= 370.0f;
+	m_py= 470.0f;
 }
 
 //アクション
@@ -45,7 +45,8 @@ void CObjExBlock::Action()
 
 	m_px += m_vx;
 
-	if(m_px >= 850.0f || Input::GetVKey('D') == true || Input::GetVKey('A') == true)//270まで移動かAまたはDキーを押すと消える。
+	if(m_px >= 850.0f || Input::GetVKey('D') == true || Input::GetVKey('A') == true
+		|| Input::GetVKey(VK_LEFT) == true || Input::GetVKey(VK_RIGHT) == true)//270まで移動かAまたはDキーを押すと消える。
 	{
 		obj_e3->Updata();//ゲージを初期化する
 		this->SetStatus(false);//自身を削除する

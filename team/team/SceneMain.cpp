@@ -80,6 +80,7 @@ void CSceneMain::InitScene()
 	//ゲージ
 	Draw::LoadImage(L"gauge.png",15,TEX_SIZE_600);
 
+
 	//主人公オブジェクト作成
 	CObjHero*obj=new CObjHero();//主人公オブジェクトの作成
 	Objs::InsertObj(obj,OBJ_HERO,10);//作った主人公オブジェクトをオブジェクトマネージャーに登録

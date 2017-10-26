@@ -120,6 +120,9 @@
     <ClCompile Include="ObjMain.cpp">
       <Filter>ソース ファイル\共通ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="ObjExplanation4.cpp">
+      <Filter>ソース ファイル\タイトル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -214,6 +217,9 @@
     </ClInclude>
     <ClInclude Include="ObjMain.h">
       <Filter>ソース ファイル\共通ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjExplanation4.h">
+      <Filter>ソース ファイル\タイトル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

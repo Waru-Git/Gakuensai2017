@@ -51,6 +51,11 @@ void CSceneTitle::InitScene()
 	Draw::LoadImage(L"image.png",21,TEX_SIZE_512);//機体と爆発のエフェクト
 	Draw::LoadImage(L"slide.png",22,TEX_SIZE_1024);//スライド
 	Draw::LoadImage(L"gauge.png",23,TEX_SIZE_600);//ゲージ
+
+	 //タイム説明とお邪魔説明
+	Draw::LoadImage(L"time.png", 24, TEX_SIZE_512);
+	Draw::LoadImage(L"bomb.png", 25, TEX_SIZE_512);
+
 	
 	Audio::LoadAudio(9,L"Title.wav" , BACK_MUSIC);//タイトルミュージック
 	Audio::LoadAudio(10,L"Exp.wav" , BACK_MUSIC);//説明画面時のミュージック

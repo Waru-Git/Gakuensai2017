@@ -90,6 +90,7 @@
     <ClCompile Include="ObjExplanation.cpp" />
     <ClCompile Include="ObjExplanation2.cpp" />
     <ClCompile Include="ObjExplanation3.cpp" />
+    <ClCompile Include="ObjExplanation4.cpp" />
     <ClCompile Include="ObjGameOver.cpp" />
     <ClCompile Include="ObjMain.cpp" />
     <ClCompile Include="ObjModeChoice.cpp" />
@@ -124,6 +125,7 @@
     <ClInclude Include="ObjExplanation.h" />
     <ClInclude Include="ObjExplanation2.h" />
     <ClInclude Include="ObjExplanation3.h" />
+    <ClInclude Include="ObjExplanation4.h" />
     <ClInclude Include="ObjGameOver.h" />
     <ClInclude Include="ObjMain.h" />
     <ClInclude Include="ObjModeChoice.h" />
